@@ -1,0 +1,13 @@
+
+WARNING: This job tries to delete everything in a Neo4j database.
+
+The top level job is called: remove all in database.kjb
+
+This example removes everything from a Neo4j database by doing the following:
+- It creates or updates a Neo4j connection with 4 variables: NEO4J_HOSTNAME, NEO4J_PORT, NEO4J_USERNAME and NEO4J_PASSWORD
+- You can set these variables in the top level job (.kjb) in the "Set Neo4j Variables" job entry.
+- By default the password is not set to make the job fail by default
+- relationships and nodes are deleted in batches of 100000.  You can change this by changing the BATCH_SIZE variable
+- The job then removes constraints, indexes, relationships and nodes in that order
+
+
