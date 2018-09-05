@@ -490,7 +490,7 @@
         </field>
         <field>
           <variable_name>BATCH_SIZE</variable_name>
-          <variable_value>1000</variable_value>
+          <variable_value>100000</variable_value>
           <variable_type>CURRENT_JOB</variable_type>
         </field>
       </fields>

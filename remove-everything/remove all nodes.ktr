@@ -554,6 +554,8 @@ RETURN count(*) as deleteCount
     <batch_size>1</batch_size>
     <cypher_from_field>N</cypher_from_field>
     <cypher_field>cypherDelete</cypher_field>
+    <unwind>N</unwind>
+    <unwind_map />
     <mappings />
     <returns>
       <return>
@@ -722,6 +724,8 @@ RETURN count(n) AS totalCount;</cypher>
     <batch_size>1</batch_size>
     <cypher_from_field>N</cypher_from_field>
     <cypher_field />
+    <unwind>N</unwind>
+    <unwind_map />
     <mappings />
     <returns>
       <return>
