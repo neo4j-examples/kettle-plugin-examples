@@ -1,0 +1,130 @@
+{
+  "relationships": [
+    {
+      "name": "Brand - Brewery",
+      "label": "brewed_in",
+      "source": "Brand",
+      "properties": [],
+      "target": "Brewery"
+    },
+    {
+      "name": "Brand - Strength",
+      "label": "has_strength",
+      "source": "Brand",
+      "properties": [],
+      "target": "Strength"
+    },
+    {
+      "name": "Strength - Evaluation",
+      "label": "has_evaluation",
+      "source": "Strength",
+      "properties": [],
+      "target": "Evaluation"
+    },
+    {
+      "name": "Brand - Type",
+      "label": "has_type",
+      "source": "Brand",
+      "properties": [],
+      "target": "Type"
+    }
+  ],
+  "nodes": [
+    {
+      "presentation": {
+        "x": 559,
+        "y": 94
+      },
+      "name": "Brand",
+      "properties": [
+        {
+          "name": "name",
+          "type": "String",
+          "primary": true
+        }
+      ],
+      "labels": [
+        "Brand"
+      ]
+    },
+    {
+      "presentation": {
+        "x": 683,
+        "y": 348
+      },
+      "name": "Strength",
+      "properties": [
+        {
+          "name": "label",
+          "type": "String",
+          "primary": true
+        },
+        {
+          "name": "pct",
+          "type": "Float",
+          "primary": false
+        }
+      ],
+      "labels": [
+        "Strength"
+      ]
+    },
+    {
+      "presentation": {
+        "x": 145,
+        "y": 343
+      },
+      "name": "Brewery",
+      "properties": [
+        {
+          "name": "name",
+          "type": "String",
+          "primary": true
+        },
+        {
+          "name": "brand",
+          "type": "String",
+          "primary": false
+        }
+      ],
+      "labels": [
+        "Brewery"
+      ]
+    },
+    {
+      "presentation": {
+        "x": 1201,
+        "y": 158
+      },
+      "name": "Evaluation",
+      "properties": [
+        {
+          "name": "label",
+          "type": "String",
+          "primary": true
+        }
+      ],
+      "labels": [
+        "Evaluation"
+      ]
+    },
+    {
+      "presentation": {
+        "x": 110,
+        "y": 62
+      },
+      "name": "Type",
+      "properties": [
+        {
+          "name": "name",
+          "type": "String",
+          "primary": true
+        }
+      ],
+      "labels": [
+        "Type"
+      ]
+    }
+  ],
+  "name": "Belgian Beers"
+}
