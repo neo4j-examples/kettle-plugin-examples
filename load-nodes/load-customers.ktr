@@ -468,6 +468,19 @@
         <master>N</master>
         <sslMode>N</sslMode>
       </slaveserver>
+      <slaveserver>
+        <name>sandbox</name>
+        <hostname>sandbox.kettle.be</hostname>
+        <port>8080</port>
+        <webAppName>spoon</webAppName>
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
     </slaveservers>
     <clusterschemas>
     </clusterschemas>
@@ -482,7 +495,12 @@
   </notepads>
   <order>
     <hop>
-      <from>customers-100.txt</from>
+      <from>customers-1M.txt</from>
+      <to>Create Customer nodes</to>
+      <enabled>N</enabled>
+    </hop>
+    <hop>
+      <from>customers-1M.txt</from>
       <to>add :Customer label</to>
       <enabled>Y</enabled>
     </hop>
@@ -490,11 +508,6 @@
       <from>add :Customer label</from>
       <to>Create :Customer nodes</to>
       <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>customers-1M.txt</from>
-      <to>Create Customer nodes</to>
-      <enabled>N</enabled>
     </hop>
   </order>
   <step>
@@ -540,7 +553,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>640</xloc>
+      <xloc>816</xloc>
       <yloc>112</yloc>
       <draw>Y</draw>
     </GUI>
@@ -583,8 +596,8 @@ CREATE (c:Customer {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>432</xloc>
-      <yloc>240</yloc>
+      <xloc>496</xloc>
+      <yloc>384</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -592,7 +605,7 @@ CREATE (c:Customer {
     <name>add :Customer label</name>
     <type>Constant</type>
     <description />
-    <distribute>N</distribute>
+    <distribute>Y</distribute>
     <custom_distribution />
     <copies>${COPIES}</copies>
     <partitioning>
@@ -621,7 +634,7 @@ CREATE (c:Customer {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>352</xloc>
+      <xloc>480</xloc>
       <yloc>112</yloc>
       <draw>Y</draw>
     </GUI>
