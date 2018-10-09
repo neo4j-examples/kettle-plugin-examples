@@ -3,3 +3,6 @@ It then splits the list up into individual statements to execute.
 You split on a semi-colon (;) on a new line.
 Empty statements comprised of only spaces (newlines, tabs, spaces, ...) are avoided. 
 
+You would typically add a parameter called FILE to this transformation and replace the hardcoded filename (in Statements) with that.
+This way you can re-use the same transformation to execute multiple files with Cypher statements. 
+

@@ -451,11 +451,14 @@
       <note>This example reads a bunch of cypher statements from a file.
 It then splits the list up into individual statements to execute.
 You split on a semi-colon (;) on a new line.
-Empty statements comprised of only spaces (newlines, tabs, spaces, ...) are avoided. </note>
+Empty statements comprised of only spaces (newlines, tabs, spaces, ...) are avoided. 
+
+You would typically add a parameter called FILE to this transformation and replace the hardcoded filename (in Statements) with that.
+This way you can re-use the same transformation to execute multiple files with Cypher statements. </note>
       <xloc>112</xloc>
       <yloc>208</yloc>
-      <width>817</width>
-      <heigth>102</heigth>
+      <width>1256</width>
+      <heigth>171</heigth>
       <fontname>Sans</fontname>
       <fontsize>6</fontsize>
       <fontbold>N</fontbold>
