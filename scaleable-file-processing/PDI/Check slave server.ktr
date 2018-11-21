@@ -547,7 +547,7 @@
       <method>none</method>
       <schema_name />
     </partitioning>
-    <connection>Demo</connection>
+    <connection>Local</connection>
     <batch_size>1000</batch_size>
     <key />
     <create_indexes>Y</create_indexes>

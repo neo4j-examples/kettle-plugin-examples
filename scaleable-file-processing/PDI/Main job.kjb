@@ -385,12 +385,10 @@
       <name>Setup SlaveServer nodes</name>
       <description />
       <type>NEO4J_CYPHER_SCRIPT</type>
-      <connection>Demo</connection>
+      <connection>Local</connection>
       <script>MATCH(s:SlaveServer) DETACH DELETE s
 ;
-CREATE(:SlaveServer { name : "slave1"})
-;
-CREATE(:SlaveServer { name : "slave2"})
+CREATE(:SlaveServer { name : "sandbox"})
 ;
 MATCH(s:SlaveServer) SET s.maxActive=3, s.active=true
 ;
@@ -403,7 +401,7 @@ MATCH(q:FileQueue) DETACH DELETE q
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>480</xloc>
+      <xloc>448</xloc>
       <yloc>48</yloc>
     </entry>
     <entry>
@@ -421,7 +419,7 @@ MATCH(q:FileQueue) DETACH DELETE q
         </field>
         <field>
           <variable_name>ETL_HOME</variable_name>
-          <variable_value>/root/.kettle/data/kettle-plugin-examples/</variable_value>
+          <variable_value>/home/matt/git/neo4j-examples/kettle-plugin-examples/scaleable-file-processing/</variable_value>
           <variable_type>CURRENT_JOB</variable_type>
         </field>
       </fields>
@@ -443,8 +441,8 @@ MATCH(q:FileQueue) DETACH DELETE q
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>544</xloc>
-      <yloc>176</yloc>
+      <xloc>1104</xloc>
+      <yloc>48</yloc>
     </entry>
     <entry>
       <name>Repeat: Empty queue</name>
@@ -458,8 +456,8 @@ MATCH(q:FileQueue) DETACH DELETE q
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>288</xloc>
-      <yloc>176</yloc>
+      <xloc>880</xloc>
+      <yloc>48</yloc>
     </entry>
   </entries>
   <hops>
@@ -510,6 +508,32 @@ MATCH(q:FileQueue) DETACH DELETE q
     </hop>
   </hops>
   <notepads>
+    <notepad>
+      <note>Remember!
+----------------------
+- Change the "Configure this" step (folder, connection)
+- Change the "Setup SlaveServer Nodes" step slaves 
+- Share the "sandbox" slave server definition 
+  in the "View" tab on the left.</note>
+      <xloc>64</xloc>
+      <yloc>160</yloc>
+      <width>818</width>
+      <heigth>220</heigth>
+      <fontname>Sans</fontname>
+      <fontsize>12</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
   </notepads>
   <attributes>
     <group>
