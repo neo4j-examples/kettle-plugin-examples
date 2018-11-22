@@ -360,7 +360,7 @@
       <name>Mark FileQueue process start</name>
       <description />
       <type>NEO4J_CYPHER_SCRIPT</type>
-      <connection>Demo</connection>
+      <connection>Local</connection>
       <script>MATCH(f:FileQueue { filename : "${FILENAME}" } )
 SET f.processStart = localdatetime(),
     f.slaveServer = "${SLAVESERVER}"
@@ -412,7 +412,7 @@ SET f.processStart = localdatetime(),
       <name>Mark FileQueue process end</name>
       <description />
       <type>NEO4J_CYPHER_SCRIPT</type>
-      <connection>Demo</connection>
+      <connection>Local</connection>
       <script>MATCH(f:FileQueue { filename : "${FILENAME}" } )
 SET f.processEnd = localdatetime()
 ;</script>
