@@ -419,8 +419,8 @@ MATCH(q:FileQueue) DETACH DELETE q
         </field>
         <field>
           <variable_name>ETL_HOME</variable_name>
-          <variable_value>/root/.kettle/data/kettle-plugin-examples/scaleable-file-processing</variable_value>
-          <variable_type>CURRENT_JOB</variable_type>
+          <variable_value>${Internal.Entry.Current.Directory}/../</variable_value>
+          <variable_type>JVM</variable_type>
         </field>
       </fields>
       <parallel>N</parallel>
@@ -513,15 +513,18 @@ MATCH(q:FileQueue) DETACH DELETE q
 ----------------------
 - Change the "Configure this" step (folder, connection)
 - Change the "Setup SlaveServer Nodes" step slaves 
-- Share the "sandbox" slave server definition 
+- Share the needed slave server definitions 
   in the "View" tab on the left.
 
 ETL_HOME is needed because you lose relative path
-references on a remote server.</note>
+references on a remote server.  Set this one in the
+JVM so that sandbox Carte knows about it as well.
+If you don't want to do this, configure Carte server(s) 
+using kettle.properties files.</note>
       <xloc>64</xloc>
       <yloc>160</yloc>
       <width>818</width>
-      <heigth>325</heigth>
+      <heigth>430</heigth>
       <fontname>Sans</fontname>
       <fontsize>12</fontsize>
       <fontbold>N</fontbold>
