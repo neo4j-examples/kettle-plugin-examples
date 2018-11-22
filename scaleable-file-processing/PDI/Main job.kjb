@@ -351,7 +351,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id />
-      <filename>${ETL_HOME}/PDI/Populate file queue.ktr</filename>
+      <filename>${Internal.Entry.Current.Directory}/Populate file queue.ktr</filename>
       <transname />
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -371,7 +371,7 @@
       <follow_abort_remote>N</follow_abort_remote>
       <create_parent_folder>N</create_parent_folder>
       <logging_remote_work>N</logging_remote_work>
-      <run_configuration />
+      <run_configuration>Pentaho local</run_configuration>
       <parameters>
         <pass_all_parameters>Y</pass_all_parameters>
       </parameters>
@@ -514,11 +514,14 @@ MATCH(q:FileQueue) DETACH DELETE q
 - Change the "Configure this" step (folder, connection)
 - Change the "Setup SlaveServer Nodes" step slaves 
 - Share the "sandbox" slave server definition 
-  in the "View" tab on the left.</note>
+  in the "View" tab on the left.
+
+ETL_HOME is needed because you lose relative path
+references on a remote server.</note>
       <xloc>64</xloc>
       <yloc>160</yloc>
       <width>818</width>
-      <heigth>220</heigth>
+      <heigth>325</heigth>
       <fontname>Sans</fontname>
       <fontsize>12</fontsize>
       <fontbold>N</fontbold>
