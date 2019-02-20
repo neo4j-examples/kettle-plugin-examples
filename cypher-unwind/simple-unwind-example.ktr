@@ -423,6 +423,45 @@
     <partitionschemas>
     </partitionschemas>
     <slaveservers>
+      <slaveserver>
+        <name>sandbox</name>
+        <hostname>sandbox.kettle.be</hostname>
+        <port>8080</port>
+        <webAppName>spoon</webAppName>
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>slave1</name>
+        <hostname>localhost</hostname>
+        <port>8300</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>slave2</name>
+        <hostname>localhost</hostname>
+        <port>8301</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
     </slaveservers>
     <clusterschemas>
     </clusterschemas>
@@ -487,6 +526,7 @@
         <item>2</item>
       </line>
     </data>
+    <attributes />
     <cluster_schema />
     <remotesteps>
       <input>
@@ -522,6 +562,8 @@ ORDER BY x</cypher>
     <cypher_field />
     <unwind>Y</unwind>
     <unwind_map>events</unwind_map>
+    <returning_graph>N</returning_graph>
+    <return_graph_field />
     <mappings>
       <mapping>
         <parameter>year</parameter>
@@ -540,6 +582,7 @@ ORDER BY x</cypher>
         <type>String</type>
       </return>
     </returns>
+    <attributes />
     <cluster_schema />
     <remotesteps>
       <input>
@@ -558,4 +601,5 @@ ORDER BY x</cypher>
   <slave-step-copy-partition-distribution>
   </slave-step-copy-partition-distribution>
   <slave_transformation>N</slave_transformation>
+  <attributes />
 </transformation>

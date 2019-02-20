@@ -421,13 +421,66 @@
     <dependencies>
     </dependencies>
     <partitionschemas>
+      <partitionschema>
+        <name>brands</name>
+        <partition>
+          <id>b1</id>
+        </partition>
+        <partition>
+          <id>b2</id>
+        </partition>
+        <partition>
+          <id>b3</id>
+        </partition>
+        <dynamic>N</dynamic>
+        <partitions_per_slave />
+      </partitionschema>
     </partitionschemas>
     <slaveservers>
+      <slaveserver>
+        <name>8888</name>
+        <hostname>localhost</hostname>
+        <port>8888</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
       <slaveserver>
         <name>sandbox</name>
         <hostname>sandbox.kettle.be</hostname>
         <port>8080</port>
         <webAppName>spoon</webAppName>
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>slave1</name>
+        <hostname>localhost</hostname>
+        <port>8300</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>slave2</name>
+        <hostname>localhost</hostname>
+        <port>8301</port>
+        <webAppName />
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
         <proxy_hostname />
@@ -457,8 +510,8 @@ return b, s, e, t
 No strength
 ------------
 match (r:Brewery)-[rb]-(b:Brand {name:"Black Damnation IX (Beggars' Art)"})-[bt]-(t:Type) return b, t, r</note>
-      <xloc>96</xloc>
-      <yloc>416</yloc>
+      <xloc>16</xloc>
+      <yloc>320</yloc>
       <width>1570</width>
       <heigth>271</heigth>
       <fontname>Courier New</fontname>
@@ -513,12 +566,14 @@ match (r:Brewery)-[rb]-(b:Brand {name:"Black Damnation IX (Beggars' Art)"})-[bt]
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name>brands</schema_name>
     </partitioning>
-    <connection>Local</connection>
+    <connection>Demo</connection>
     <model>Belgian Beers</model>
-    <batch_size>10000</batch_size>
+    <batch_size>5000</batch_size>
     <create_indexes>Y</create_indexes>
+    <returning_graph>N</returning_graph>
+    <return_graph_field />
     <mappings>
       <mapping>
         <source_field>BeerBrand</source_field>
@@ -562,7 +617,14 @@ match (r:Brewery)-[rb]-(b:Brand {name:"Black Damnation IX (Beggars' Art)"})-[bt]
         <target_name>Brewery</target_name>
         <target_property>brand</target_property>
       </mapping>
+      <mapping>
+        <source_field>relPct</source_field>
+        <target_type>Relationship</target_type>
+        <target_name>Strength - Evaluation</target_name>
+        <target_property>percentage</target_property>
+      </mapping>
     </mappings>
+    <attributes />
     <cluster_schema />
     <remotesteps>
       <input>
@@ -571,8 +633,8 @@ match (r:Brewery)-[rb]-(b:Brand {name:"Black Damnation IX (Beggars' Art)"})-[bt]
       </output>
     </remotesteps>
     <GUI>
-      <xloc>512</xloc>
-      <yloc>256</yloc>
+      <xloc>944</xloc>
+      <yloc>80</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -646,6 +708,7 @@ match (r:Brewery)-[rb]-(b:Brand {name:"Black Damnation IX (Beggars' Art)"})-[bt]
         <trim_type>none</trim_type>
       </field>
     </fields>
+    <attributes />
     <cluster_schema />
     <remotesteps>
       <input>
@@ -654,8 +717,8 @@ match (r:Brewery)-[rb]-(b:Brand {name:"Black Damnation IX (Beggars' Art)"})-[bt]
       </output>
     </remotesteps>
     <GUI>
-      <xloc>176</xloc>
-      <yloc>64</yloc>
+      <xloc>112</xloc>
+      <yloc>80</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -696,6 +759,7 @@ match (r:Brewery)-[rb]-(b:Brand {name:"Black Damnation IX (Beggars' Art)"})-[bt]
         <is_unicode>no</is_unicode>
       </field>
     </fields>
+    <attributes />
     <cluster_schema />
     <remotesteps>
       <input>
@@ -704,8 +768,8 @@ match (r:Brewery)-[rb]-(b:Brand {name:"Black Damnation IX (Beggars' Art)"})-[bt]
       </output>
     </remotesteps>
     <GUI>
-      <xloc>368</xloc>
-      <yloc>64</yloc>
+      <xloc>240</xloc>
+      <yloc>80</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -727,6 +791,7 @@ match (r:Brewery)-[rb]-(b:Brand {name:"Black Damnation IX (Beggars' Art)"})-[bt]
     <rownum_field />
     <resetrownumber>Y</resetrownumber>
     <delimiter_is_regex>Y</delimiter_is_regex>
+    <attributes />
     <cluster_schema />
     <remotesteps>
       <input>
@@ -735,8 +800,8 @@ match (r:Brewery)-[rb]-(b:Brand {name:"Black Damnation IX (Beggars' Art)"})-[bt]
       </output>
     </remotesteps>
     <GUI>
-      <xloc>544</xloc>
-      <yloc>64</yloc>
+      <xloc>384</xloc>
+      <yloc>80</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -781,6 +846,7 @@ match (r:Brewery)-[rb]-(b:Brand {name:"Black Damnation IX (Beggars' Art)"})-[bt]
         <value>Extreme</value>
       </rule>
     </rules>
+    <attributes />
     <cluster_schema />
     <remotesteps>
       <input>
@@ -789,8 +855,8 @@ match (r:Brewery)-[rb]-(b:Brand {name:"Black Damnation IX (Beggars' Art)"})-[bt]
       </output>
     </remotesteps>
     <GUI>
-      <xloc>864</xloc>
-      <yloc>64</yloc>
+      <xloc>704</xloc>
+      <yloc>80</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -812,6 +878,10 @@ match (r:Brewery)-[rb]-(b:Brand {name:"Black Damnation IX (Beggars' Art)"})-[bt]
       <field>
         <name>AlcoholPercentage</name>
         <rename>pct</rename>
+      </field>
+      <field>
+        <name>AlcoholPercentage</name>
+        <rename>relPct</rename>
       </field>
       <field>
         <name>AlcoholPercentage</name>
@@ -841,6 +911,7 @@ match (r:Brewery)-[rb]-(b:Brand {name:"Black Damnation IX (Beggars' Art)"})-[bt]
         <storage_type />
       </meta>
     </fields>
+    <attributes />
     <cluster_schema />
     <remotesteps>
       <input>
@@ -849,8 +920,8 @@ match (r:Brewery)-[rb]-(b:Brand {name:"Black Damnation IX (Beggars' Art)"})-[bt]
       </output>
     </remotesteps>
     <GUI>
-      <xloc>704</xloc>
-      <yloc>64</yloc>
+      <xloc>544</xloc>
+      <yloc>80</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -868,11 +939,11 @@ match (r:Brewery)-[rb]-(b:Brand {name:"Black Damnation IX (Beggars' Art)"})-[bt]
       </attribute>
       <attribute>
         <key>Neo4j Graph Output : start_row</key>
-        <value>5</value>
+        <value>1</value>
       </attribute>
       <attribute>
         <key>Neo4j Graph Output : end_row</key>
-        <value>5</value>
+        <value>1</value>
       </attribute>
       <attribute>
         <key>Neo4j Graph Output : log_level</key>

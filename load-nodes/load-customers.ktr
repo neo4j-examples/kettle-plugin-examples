@@ -11,7 +11,7 @@
     <parameters>
       <parameter>
         <name>COPIES</name>
-        <default_value>5</default_value>
+        <default_value>4</default_value>
         <description>Parallelism</description>
       </parameter>
     </parameters>
@@ -469,10 +469,49 @@
         <sslMode>N</sslMode>
       </slaveserver>
       <slaveserver>
+        <name>8888</name>
+        <hostname>localhost</hostname>
+        <port>8888</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
         <name>sandbox</name>
         <hostname>sandbox.kettle.be</hostname>
         <port>8080</port>
         <webAppName>spoon</webAppName>
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>slave1</name>
+        <hostname>localhost</hostname>
+        <port>8300</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>slave2</name>
+        <hostname>localhost</hostname>
+        <port>8301</port>
+        <webAppName />
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
         <proxy_hostname />
@@ -495,17 +534,7 @@
   </notepads>
   <order>
     <hop>
-      <from>customers-1M.txt</from>
-      <to>Create Customer nodes</to>
-      <enabled>N</enabled>
-    </hop>
-    <hop>
-      <from>customers-1M.txt</from>
-      <to>add :Customer label</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>add :Customer label</from>
+      <from>customers-25M.txt</from>
       <to>Create :Customer nodes</to>
       <enabled>Y</enabled>
     </hop>
@@ -516,35 +545,99 @@
     <description />
     <distribute>Y</distribute>
     <custom_distribution />
-    <copies>${COPIES}</copies>
+    <copies>4</copies>
     <partitioning>
       <method>none</method>
       <schema_name />
     </partitioning>
     <connection>Local</connection>
-    <batch_size>50000</batch_size>
+    <batch_size>10000</batch_size>
     <key />
-    <create_indexes>N</create_indexes>
-    <use_create>Y</use_create>
+    <create_indexes>Y</create_indexes>
+    <use_create>N</use_create>
+    <only_create_relationships>N</only_create_relationships>
+    <returning_graph>N</returning_graph>
+    <return_graph_field>graph</return_graph_field>
     <from>
+      <read_only_from_node>N</read_only_from_node>
       <labels>
-        <label>Label</label>
+        <label />
+        <value>Customer</value>
+        <label />
+        <value>AnotherLabel</value>
       </labels>
       <properties>
         <property>
           <name>id</name>
           <value>id</value>
+          <type>Integer</type>
+          <primary>Y</primary>
+        </property>
+        <property>
+          <name>lastName</name>
+          <value>Last name</value>
+          <type>String</type>
+          <primary>N</primary>
+        </property>
+        <property>
+          <name>firstName</name>
+          <value>First name</value>
+          <type>String</type>
+          <primary>N</primary>
+        </property>
+        <property>
+          <name>custZipCode</name>
+          <value>cust_zip_code</value>
+          <type>String</type>
+          <primary>N</primary>
+        </property>
+        <property>
+          <name>city</name>
+          <value>city</value>
+          <type>String</type>
+          <primary>N</primary>
+        </property>
+        <property>
+          <name>birthdate</name>
+          <value>birthdate</value>
+          <type>String</type>
+          <primary>N</primary>
+        </property>
+        <property>
+          <name>street</name>
+          <value>street</value>
+          <type>String</type>
+          <primary>N</primary>
+        </property>
+        <property>
+          <name>housenr</name>
+          <value>housenr</value>
+          <type>String</type>
+          <primary>N</primary>
+        </property>
+        <property>
+          <name>stateCode</name>
+          <value>stateCode</value>
+          <type>String</type>
+          <primary>N</primary>
+        </property>
+        <property>
+          <name>state</name>
+          <value>state</value>
           <type>String</type>
           <primary>N</primary>
         </property>
       </properties>
     </from>
     <to>
+      <read_only_to_node>N</read_only_to_node>
       <labels />
       <properties />
     </to>
     <relationship />
+    <relationship_value />
     <relprops />
+    <attributes />
     <cluster_schema />
     <remotesteps>
       <input>
@@ -553,104 +646,23 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>816</xloc>
-      <yloc>112</yloc>
+      <xloc>560</xloc>
+      <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Create Customer nodes</name>
-    <type>Neo4jCypherOutput</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>${COPIES}</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <connection>Local</connection>
-    <cypher>UNWIND $customers AS customer
-CREATE (c:Customer {
-  id : customer.id
-})
-</cypher>
-    <batch_size>50000</batch_size>
-    <cypher_from_field>N</cypher_from_field>
-    <cypher_field />
-    <unwind>Y</unwind>
-    <unwind_map>customers</unwind_map>
-    <mappings>
-      <mapping>
-        <parameter>id</parameter>
-        <field>id</field>
-        <type>String</type>
-      </mapping>
-    </mappings>
-    <returns />
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>496</xloc>
-      <yloc>384</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>add :Customer label</name>
-    <type>Constant</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>${COPIES}</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <fields>
-      <field>
-        <name>Label</name>
-        <type>String</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
-        <nullif>Customer</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-    </fields>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>480</xloc>
-      <yloc>112</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>customers-1M.txt</name>
+    <name>customers-25M.txt</name>
     <type>CsvInput</type>
     <description />
     <distribute>Y</distribute>
     <custom_distribution />
-    <copies>${COPIES}</copies>
+    <copies>1</copies>
     <partitioning>
       <method>none</method>
       <schema_name />
     </partitioning>
-    <filename>${Internal.Entry.Current.Directory}/files/customers-1M.txt</filename>
+    <filename>/home/matt/parking/customers-25M.txt</filename>
     <filename_field />
     <rownum_field />
     <include_filename>N</include_filename>
@@ -658,7 +670,7 @@ CREATE (c:Customer {
     <enclosure>"</enclosure>
     <header>Y</header>
     <buffer_size>50000</buffer_size>
-    <lazy_conversion>Y</lazy_conversion>
+    <lazy_conversion>N</lazy_conversion>
     <add_filename_result>N</add_filename_result>
     <parallel>Y</parallel>
     <newline_possible>N</newline_possible>
@@ -775,6 +787,7 @@ CREATE (c:Customer {
         <trim_type>none</trim_type>
       </field>
     </fields>
+    <attributes />
     <cluster_schema />
     <remotesteps>
       <input>
@@ -783,8 +796,8 @@ CREATE (c:Customer {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>144</xloc>
-      <yloc>112</yloc>
+      <xloc>224</xloc>
+      <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -793,4 +806,5 @@ CREATE (c:Customer {
   <slave-step-copy-partition-distribution>
   </slave-step-copy-partition-distribution>
   <slave_transformation>N</slave_transformation>
+  <attributes />
 </transformation>

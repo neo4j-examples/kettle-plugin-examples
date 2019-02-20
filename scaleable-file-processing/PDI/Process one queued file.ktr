@@ -443,9 +443,9 @@
         <sslMode>N</sslMode>
       </slaveserver>
       <slaveserver>
-        <name>slave2</name>
+        <name>slave1</name>
         <hostname>localhost</hostname>
-        <port>8301</port>
+        <port>8300</port>
         <webAppName />
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
@@ -456,9 +456,9 @@
         <sslMode>N</sslMode>
       </slaveserver>
       <slaveserver>
-        <name>slave1</name>
+        <name>slave2</name>
         <hostname>localhost</hostname>
-        <port>8300</port>
+        <port>8301</port>
         <webAppName />
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
@@ -567,6 +567,10 @@ Alert("Updated slave server status after post to "+slaveName);
       <parameter>
         <name>SLAVESERVER</name>
         <field>slaveName</field>
+      </parameter>
+      <parameter>
+        <name>ETL_HOME</name>
+        <field>etlHome</field>
       </parameter>
     </parameters>
     <result_xml_field>result</result_xml_field>
@@ -700,6 +704,18 @@ LIMIT 1</cypher>
       <field>
         <name>filename</name>
         <variable>${FILENAME}</variable>
+        <type>String</type>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>etlHome</name>
+        <variable>${ETL_HOME}</variable>
         <type>String</type>
         <format />
         <currency />

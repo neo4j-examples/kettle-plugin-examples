@@ -423,6 +423,58 @@
     <partitionschemas>
     </partitionschemas>
     <slaveservers>
+      <slaveserver>
+        <name>8888</name>
+        <hostname>localhost</hostname>
+        <port>8888</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>sandbox</name>
+        <hostname>sandbox.kettle.be</hostname>
+        <port>8080</port>
+        <webAppName>spoon</webAppName>
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>slave1</name>
+        <hostname>localhost</hostname>
+        <port>8300</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>slave2</name>
+        <hostname>localhost</hostname>
+        <port>8301</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
     </slaveservers>
     <clusterschemas>
     </clusterschemas>
@@ -493,6 +545,7 @@
         <valuefield>, </valuefield>
       </field>
     </fields>
+    <attributes />
     <cluster_schema />
     <remotesteps>
       <input>
@@ -517,7 +570,7 @@
       <method>none</method>
       <schema_name />
     </partitioning>
-    <connection>Local</connection>
+    <connection>Demo</connection>
     <cypher>MATCH (b:Brand)-[]-(r:Brewery)
 MATCH (b:Brand)-[]-(s:Strength)
 MATCH (s:Strength)-[]-(e:Evaluation)
@@ -528,6 +581,8 @@ RETURN b.name as Brand, r.name as Brewery, s.label as Strength, e.label as Evalu
     <cypher_field />
     <unwind>N</unwind>
     <unwind_map />
+    <returning_graph>N</returning_graph>
+    <return_graph_field />
     <mappings />
     <returns>
       <return>
@@ -551,6 +606,7 @@ RETURN b.name as Brand, r.name as Brewery, s.label as Strength, e.label as Evalu
         <type>String</type>
       </return>
     </returns>
+    <attributes />
     <cluster_schema />
     <remotesteps>
       <input>
@@ -592,6 +648,7 @@ RETURN b.name as Brand, r.name as Brewery, s.label as Strength, e.label as Evalu
         <presorted>N</presorted>
       </field>
     </fields>
+    <attributes />
     <cluster_schema />
     <remotesteps>
       <input>
@@ -689,6 +746,7 @@ RETURN b.name as Brand, r.name as Brewery, s.label as Strength, e.label as Evalu
       <row_font_color>black</row_font_color>
       <row_background_color>none</row_background_color>
     </custom>
+    <attributes />
     <cluster_schema />
     <remotesteps>
       <input>
@@ -697,7 +755,7 @@ RETURN b.name as Brand, r.name as Brewery, s.label as Strength, e.label as Evalu
       </output>
     </remotesteps>
     <GUI>
-      <xloc>752</xloc>
+      <xloc>704</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
@@ -707,4 +765,20 @@ RETURN b.name as Brand, r.name as Brewery, s.label as Strength, e.label as Evalu
   <slave-step-copy-partition-distribution>
   </slave-step-copy-partition-distribution>
   <slave_transformation>N</slave_transformation>
+  <attributes>
+    <group>
+      <name>METASTORE.pentaho</name>
+      <attribute>
+        <key>Kettle Data Service</key>
+        <value>{"namespace":"pentaho","id":"Kettle Data Service","name":"Kettle Data Service","description":"The elements describing data services based upon transformation output","metaStoreName":null}</value>
+      </attribute>
+    </group>
+    <group>
+      <name>{"_":"Embedded MetaStore Elements","namespace":"pentaho","type":"Kettle Data Service"}</name>
+      <attribute>
+        <key>XLS_DATA</key>
+        <value>{"children":[{"children":[],"id":"streaming","value":"N"},{"children":[],"id":"time_limit","value":"10000"},{"children":[],"id":"step_name","value":"Strength desc"},{"children":[],"id":"row_limit","value":"5000"},{"children":[{"children":[{"children":[],"id":"step_name","value":"Strength desc"},{"children":[],"id":"name","value":"805ccf79-ec37-4d17-9d5e-d030485d8733"},{"children":[{"children":[{"children":[],"id":"template_name","value":"default"},{"children":[],"id":"time_to_live","value":null}],"id":"_POJO_","value":"org.pentaho.di.trans.dataservice.optimization.cache.ServiceCache"}],"id":"type","value":null},{"children":[],"id":"enabled","value":"Y"}],"id":"0","value":null},{"children":[{"children":[],"id":"step_name","value":"Strength desc"},{"children":[],"id":"name","value":"ff8280d6-7c33-493e-ac73-40fa0811d278"},{"children":[{"children":[{"children":[],"id":"definitions_list","value":null}],"id":"_POJO_","value":"org.pentaho.di.trans.dataservice.optimization.pushdown.ParameterPushdown"}],"id":"type","value":null},{"children":[],"id":"enabled","value":"Y"}],"id":"1","value":null}],"id":"push_down_opt_meta","value":"org.pentaho.di.trans.dataservice.optimization.PushDownOptimizationMeta"},{"children":[],"id":"is_user_defined","value":"Y"}],"id":"XLS_DATA","value":null,"name":"XLS_DATA","owner":null,"ownerPermissionsList":[]}</value>
+      </attribute>
+    </group>
+  </attributes>
 </transformation>

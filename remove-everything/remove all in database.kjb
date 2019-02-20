@@ -12,7 +12,46 @@
   <parameters>
     </parameters>
   <slaveservers>
-    </slaveservers>
+    <slaveserver>
+      <name>sandbox</name>
+      <hostname>sandbox.kettle.be</hostname>
+      <port>8080</port>
+      <webAppName>spoon</webAppName>
+      <username>cluster</username>
+      <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+      <proxy_hostname />
+      <proxy_port />
+      <non_proxy_hosts />
+      <master>N</master>
+      <sslMode>N</sslMode>
+    </slaveserver>
+    <slaveserver>
+      <name>slave1</name>
+      <hostname>localhost</hostname>
+      <port>8300</port>
+      <webAppName />
+      <username>cluster</username>
+      <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+      <proxy_hostname />
+      <proxy_port />
+      <non_proxy_hosts />
+      <master>N</master>
+      <sslMode>N</sslMode>
+    </slaveserver>
+    <slaveserver>
+      <name>slave2</name>
+      <hostname>localhost</hostname>
+      <port>8301</port>
+      <webAppName />
+      <username>cluster</username>
+      <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+      <proxy_hostname />
+      <proxy_port />
+      <non_proxy_hosts />
+      <master>N</master>
+      <sslMode>N</sslMode>
+    </slaveserver>
+  </slaveservers>
   <job-log-table>
     <connection />
     <schema />
@@ -290,6 +329,7 @@
       <name>START</name>
       <description />
       <type>SPECIAL</type>
+      <attributes />
       <start>Y</start>
       <dummy>N</dummy>
       <repeat>N</repeat>
@@ -305,11 +345,13 @@
       <nr>0</nr>
       <xloc>80</xloc>
       <yloc>80</yloc>
+      <attributes_kjc />
     </entry>
     <entry>
       <name>drop all constraints</name>
       <description />
       <type>TRANS</type>
+      <attributes />
       <specification_method>filename</specification_method>
       <trans_object_id />
       <filename>${Internal.Entry.Current.Directory}/drop all constraints.ktr</filename>
@@ -341,11 +383,13 @@
       <nr>0</nr>
       <xloc>688</xloc>
       <yloc>208</yloc>
+      <attributes_kjc />
     </entry>
     <entry>
       <name>remove all nodes</name>
       <description />
       <type>TRANS</type>
+      <attributes />
       <specification_method>filename</specification_method>
       <trans_object_id />
       <filename>${Internal.Entry.Current.Directory}/remove all nodes.ktr</filename>
@@ -382,11 +426,13 @@
       <nr>0</nr>
       <xloc>992</xloc>
       <yloc>320</yloc>
+      <attributes_kjc />
     </entry>
     <entry>
       <name>drop all indexes</name>
       <description />
       <type>TRANS</type>
+      <attributes />
       <specification_method>filename</specification_method>
       <trans_object_id />
       <filename>${Internal.Entry.Current.Directory}/drop all indexes.ktr</filename>
@@ -418,11 +464,13 @@
       <nr>0</nr>
       <xloc>992</xloc>
       <yloc>208</yloc>
+      <attributes_kjc />
     </entry>
     <entry>
       <name>remove all relationships</name>
       <description />
       <type>TRANS</type>
+      <attributes />
       <specification_method>filename</specification_method>
       <trans_object_id />
       <filename>${Internal.Entry.Current.Directory}/remove all relationships.ktr</filename>
@@ -459,18 +507,20 @@
       <nr>0</nr>
       <xloc>688</xloc>
       <yloc>320</yloc>
+      <attributes_kjc />
     </entry>
     <entry>
       <name>Set NEO4J variables</name>
       <description />
       <type>SET_VARIABLES</type>
+      <attributes />
       <replacevars>Y</replacevars>
       <filename />
       <file_variable_type>CURRENT_JOB</file_variable_type>
       <fields>
         <field>
           <variable_name>NEO4J_HOSTNAME</variable_name>
-          <variable_value>localhost</variable_value>
+          <variable_value>192.168.1.15</variable_value>
           <variable_type>CURRENT_JOB</variable_type>
         </field>
         <field>
@@ -485,12 +535,12 @@
         </field>
         <field>
           <variable_name>NEO4J_PASSWORD</variable_name>
-          <variable_value>Change Password Here</variable_value>
+          <variable_value>trxq7777</variable_value>
           <variable_type>CURRENT_JOB</variable_type>
         </field>
         <field>
           <variable_name>BATCH_SIZE</variable_name>
-          <variable_value>100000</variable_value>
+          <variable_value>200000</variable_value>
           <variable_type>CURRENT_JOB</variable_type>
         </field>
       </fields>
@@ -499,11 +549,13 @@
       <nr>0</nr>
       <xloc>304</xloc>
       <yloc>80</yloc>
+      <attributes_kjc />
     </entry>
     <entry>
       <name>Create Cleanup Neo4j connection</name>
       <description />
       <type>EVAL</type>
+      <attributes />
       <script>/*
    Not a very clean way of creating a parameterized connection automatically.
    I should find a better way of doing this, perhaps with a dedicated step.
@@ -545,6 +597,7 @@ ok
       <nr>0</nr>
       <xloc>304</xloc>
       <yloc>208</yloc>
+      <attributes_kjc />
     </entry>
   </entries>
   <hops>
@@ -609,8 +662,8 @@ ok
 Set the appropriate variables</note>
       <xloc>32</xloc>
       <yloc>464</yloc>
-      <width>1237</width>
-      <heigth>110</heigth>
+      <width>1411</width>
+      <heigth>122</heigth>
       <fontname>Noto Sans</fontname>
       <fontsize>13</fontsize>
       <fontbold>Y</fontbold>
@@ -630,8 +683,8 @@ Set the appropriate variables</note>
       <note>&lt;--- Set connection settings here</note>
       <xloc>352</xloc>
       <yloc>64</yloc>
-      <width>377</width>
-      <heigth>37</heigth>
+      <width>424</width>
+      <heigth>40</heigth>
       <fontname>Sans</fontname>
       <fontsize>8</fontsize>
       <fontbold>N</fontbold>

@@ -378,7 +378,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1072</xloc>
+      <xloc>1376</xloc>
       <yloc>80</yloc>
     </entry>
     <entry>
@@ -403,7 +403,7 @@
       <cluster>N</cluster>
       <slave_server_name />
       <set_append_logfile>N</set_append_logfile>
-      <wait_until_finished>Y</wait_until_finished>
+      <wait_until_finished>N</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
       <create_parent_folder>N</create_parent_folder>
       <logging_remote_work>N</logging_remote_work>
@@ -414,7 +414,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>480</xloc>
+      <xloc>784</xloc>
       <yloc>80</yloc>
     </entry>
     <entry>
@@ -436,7 +436,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>688</xloc>
+      <xloc>992</xloc>
       <yloc>80</yloc>
     </entry>
     <entry>
@@ -458,7 +458,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>880</xloc>
+      <xloc>1184</xloc>
       <yloc>80</yloc>
     </entry>
     <entry>
@@ -483,7 +483,7 @@
       <cluster>N</cluster>
       <slave_server_name />
       <set_append_logfile>N</set_append_logfile>
-      <wait_until_finished>Y</wait_until_finished>
+      <wait_until_finished>N</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
       <create_parent_folder>N</create_parent_folder>
       <logging_remote_work>N</logging_remote_work>
@@ -504,7 +504,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>688</xloc>
+      <xloc>992</xloc>
       <yloc>208</yloc>
     </entry>
     <entry>
@@ -514,23 +514,55 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>880</xloc>
+      <xloc>1184</xloc>
       <yloc>208</yloc>
+    </entry>
+    <entry>
+      <name>Slaves check Abort</name>
+      <description />
+      <type>ABORT</type>
+      <message>Error checking slave servers!</message>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>352</xloc>
+      <yloc>224</yloc>
+    </entry>
+    <entry>
+      <name>Couldn't process</name>
+      <description />
+      <type>ABORT</type>
+      <message>Error processing queued files</message>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>1376</xloc>
+      <yloc>208</yloc>
+    </entry>
+    <entry>
+      <name>Double Check error log</name>
+      <description />
+      <type>EVAL</type>
+      <script>
+var logText = previous_result.getLogText();
+
+if (logText.contains(" - ERROR")) {
+  false;
+} else {
+  true;
+}
+</script>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>448</xloc>
+      <yloc>80</yloc>
     </entry>
   </entries>
   <hops>
     <hop>
       <from>Start</from>
       <to>Check slave servers</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
-    <hop>
-      <from>Check slave servers</from>
-      <to>Evaluate Queue and Slaves</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -582,29 +614,53 @@
       <evaluation>N</evaluation>
       <unconditional>N</unconditional>
     </hop>
+    <hop>
+      <from>Process queued files</from>
+      <to>Couldn't process</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Check slave servers</from>
+      <to>Slaves check Abort</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Check slave servers</from>
+      <to>Double Check error log</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Double Check error log</from>
+      <to>Evaluate Queue and Slaves</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Double Check error log</from>
+      <to>Slaves check Abort</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
   </hops>
   <notepads>
-    <notepad>
-      <note>Repeat every 10s</note>
-      <xloc>48</xloc>
-      <yloc>144</yloc>
-      <width>139</width>
-      <heigth>28</heigth>
-      <fontname>Sans</fontname>
-      <fontsize>6</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>220</backgroundcolorred>
-      <backgroundcolorgreen>254</backgroundcolorgreen>
-      <backgroundcolorblue>220</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
   </notepads>
   <attributes>
     <group>
@@ -629,7 +685,7 @@
       </attribute>
       <attribute>
         <key>Evaluate Queue and Slaves.0 : entry_log_result</key>
-        <value>Y</value>
+        <value>N</value>
       </attribute>
       <attribute>
         <key>Evaluate Queue and Slaves.0 : entry_log_level</key>
@@ -644,11 +700,11 @@
         <value>Y</value>
       </attribute>
       <attribute>
-        <key>Calculate Queued Size.0 : entry_log_result_rows</key>
+        <key>Calculate Queued Size.0 : entry_log_result_files</key>
         <value>N</value>
       </attribute>
       <attribute>
-        <key>Calculate Queued Size.0 : entry_log_result_files</key>
+        <key>Calculate Queued Size.0 : entry_log_result_rows</key>
         <value>N</value>
       </attribute>
       <attribute>

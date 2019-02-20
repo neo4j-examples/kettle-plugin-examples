@@ -11,7 +11,7 @@
     <parameters>
       <parameter>
         <name>FILENAME</name>
-        <default_value>/home/matt/test-stuff/ScaleableFileProcessing/ETL/input/file1.csv</default_value>
+        <default_value>file:///home/matt/git/neo4j-examples/kettle-plugin-examples/scaleable-file-processing/input/file01.csv</default_value>
         <description>The file to process</description>
       </parameter>
       <parameter>
@@ -448,9 +448,9 @@
         <sslMode>N</sslMode>
       </slaveserver>
       <slaveserver>
-        <name>slave2</name>
+        <name>slave1</name>
         <hostname>localhost</hostname>
-        <port>8301</port>
+        <port>8300</port>
         <webAppName />
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
@@ -461,9 +461,9 @@
         <sslMode>N</sslMode>
       </slaveserver>
       <slaveserver>
-        <name>slave1</name>
+        <name>slave2</name>
         <hostname>localhost</hostname>
-        <port>8300</port>
+        <port>8301</port>
         <webAppName />
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
@@ -498,15 +498,41 @@
     </hop>
     <hop>
       <from>nrRows, minId, maxId</from>
-      <to>30s wait</to>
+      <to>15s wait</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>30s wait</from>
+      <from>15s wait</from>
       <to>filename</to>
       <enabled>Y</enabled>
     </hop>
   </order>
+  <step>
+    <name>15s wait</name>
+    <type>Delay</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <timeout>15</timeout>
+    <scaletime>seconds</scaletime>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>608</xloc>
+      <yloc>144</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
   <step>
     <name>Read ${FILENAME}</name>
     <type>CsvInput</type>
@@ -652,32 +678,6 @@
     </remotesteps>
     <GUI>
       <xloc>240</xloc>
-      <yloc>144</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>30s wait</name>
-    <type>Delay</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <timeout>30</timeout>
-    <scaletime>seconds</scaletime>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>608</xloc>
       <yloc>144</yloc>
       <draw>Y</draw>
     </GUI>
