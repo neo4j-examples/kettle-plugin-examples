@@ -1,0 +1,1086 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<transformation>
+  <info>
+    <name>Beer Graph Import</name>
+    <description />
+    <extended_description />
+    <trans_version />
+    <trans_type>Normal</trans_type>
+    <trans_status>0</trans_status>
+    <directory>/</directory>
+    <parameters>
+      <parameter>
+        <name>TARGET_FOLDER</name>
+        <default_value>/home/matt/.config/Neo4j Desktop/Application/neo4jDatabases/database-27973198-7202-4666-819c-fc908fcbc4ab/installation-3.5.1</default_value>
+        <description />
+      </parameter>
+    </parameters>
+    <log>
+      <trans-log-table>
+        <connection />
+        <schema />
+        <table />
+        <size_limit_lines />
+        <interval />
+        <timeout_days />
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>TRANSNAME</id>
+          <enabled>Y</enabled>
+          <name>TRANSNAME</name>
+        </field>
+        <field>
+          <id>STATUS</id>
+          <enabled>Y</enabled>
+          <name>STATUS</name>
+        </field>
+        <field>
+          <id>LINES_READ</id>
+          <enabled>Y</enabled>
+          <name>LINES_READ</name>
+          <subject />
+        </field>
+        <field>
+          <id>LINES_WRITTEN</id>
+          <enabled>Y</enabled>
+          <name>LINES_WRITTEN</name>
+          <subject />
+        </field>
+        <field>
+          <id>LINES_UPDATED</id>
+          <enabled>Y</enabled>
+          <name>LINES_UPDATED</name>
+          <subject />
+        </field>
+        <field>
+          <id>LINES_INPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_INPUT</name>
+          <subject />
+        </field>
+        <field>
+          <id>LINES_OUTPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_OUTPUT</name>
+          <subject />
+        </field>
+        <field>
+          <id>LINES_REJECTED</id>
+          <enabled>Y</enabled>
+          <name>LINES_REJECTED</name>
+          <subject />
+        </field>
+        <field>
+          <id>ERRORS</id>
+          <enabled>Y</enabled>
+          <name>ERRORS</name>
+        </field>
+        <field>
+          <id>STARTDATE</id>
+          <enabled>Y</enabled>
+          <name>STARTDATE</name>
+        </field>
+        <field>
+          <id>ENDDATE</id>
+          <enabled>Y</enabled>
+          <name>ENDDATE</name>
+        </field>
+        <field>
+          <id>LOGDATE</id>
+          <enabled>Y</enabled>
+          <name>LOGDATE</name>
+        </field>
+        <field>
+          <id>DEPDATE</id>
+          <enabled>Y</enabled>
+          <name>DEPDATE</name>
+        </field>
+        <field>
+          <id>REPLAYDATE</id>
+          <enabled>Y</enabled>
+          <name>REPLAYDATE</name>
+        </field>
+        <field>
+          <id>LOG_FIELD</id>
+          <enabled>Y</enabled>
+          <name>LOG_FIELD</name>
+        </field>
+        <field>
+          <id>EXECUTING_SERVER</id>
+          <enabled>N</enabled>
+          <name>EXECUTING_SERVER</name>
+        </field>
+        <field>
+          <id>EXECUTING_USER</id>
+          <enabled>N</enabled>
+          <name>EXECUTING_USER</name>
+        </field>
+        <field>
+          <id>CLIENT</id>
+          <enabled>N</enabled>
+          <name>CLIENT</name>
+        </field>
+      </trans-log-table>
+      <perf-log-table>
+        <connection />
+        <schema />
+        <table />
+        <interval />
+        <timeout_days />
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>SEQ_NR</id>
+          <enabled>Y</enabled>
+          <name>SEQ_NR</name>
+        </field>
+        <field>
+          <id>LOGDATE</id>
+          <enabled>Y</enabled>
+          <name>LOGDATE</name>
+        </field>
+        <field>
+          <id>TRANSNAME</id>
+          <enabled>Y</enabled>
+          <name>TRANSNAME</name>
+        </field>
+        <field>
+          <id>STEPNAME</id>
+          <enabled>Y</enabled>
+          <name>STEPNAME</name>
+        </field>
+        <field>
+          <id>STEP_COPY</id>
+          <enabled>Y</enabled>
+          <name>STEP_COPY</name>
+        </field>
+        <field>
+          <id>LINES_READ</id>
+          <enabled>Y</enabled>
+          <name>LINES_READ</name>
+        </field>
+        <field>
+          <id>LINES_WRITTEN</id>
+          <enabled>Y</enabled>
+          <name>LINES_WRITTEN</name>
+        </field>
+        <field>
+          <id>LINES_UPDATED</id>
+          <enabled>Y</enabled>
+          <name>LINES_UPDATED</name>
+        </field>
+        <field>
+          <id>LINES_INPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_INPUT</name>
+        </field>
+        <field>
+          <id>LINES_OUTPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_OUTPUT</name>
+        </field>
+        <field>
+          <id>LINES_REJECTED</id>
+          <enabled>Y</enabled>
+          <name>LINES_REJECTED</name>
+        </field>
+        <field>
+          <id>ERRORS</id>
+          <enabled>Y</enabled>
+          <name>ERRORS</name>
+        </field>
+        <field>
+          <id>INPUT_BUFFER_ROWS</id>
+          <enabled>Y</enabled>
+          <name>INPUT_BUFFER_ROWS</name>
+        </field>
+        <field>
+          <id>OUTPUT_BUFFER_ROWS</id>
+          <enabled>Y</enabled>
+          <name>OUTPUT_BUFFER_ROWS</name>
+        </field>
+      </perf-log-table>
+      <channel-log-table>
+        <connection />
+        <schema />
+        <table />
+        <timeout_days />
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>LOG_DATE</id>
+          <enabled>Y</enabled>
+          <name>LOG_DATE</name>
+        </field>
+        <field>
+          <id>LOGGING_OBJECT_TYPE</id>
+          <enabled>Y</enabled>
+          <name>LOGGING_OBJECT_TYPE</name>
+        </field>
+        <field>
+          <id>OBJECT_NAME</id>
+          <enabled>Y</enabled>
+          <name>OBJECT_NAME</name>
+        </field>
+        <field>
+          <id>OBJECT_COPY</id>
+          <enabled>Y</enabled>
+          <name>OBJECT_COPY</name>
+        </field>
+        <field>
+          <id>REPOSITORY_DIRECTORY</id>
+          <enabled>Y</enabled>
+          <name>REPOSITORY_DIRECTORY</name>
+        </field>
+        <field>
+          <id>FILENAME</id>
+          <enabled>Y</enabled>
+          <name>FILENAME</name>
+        </field>
+        <field>
+          <id>OBJECT_ID</id>
+          <enabled>Y</enabled>
+          <name>OBJECT_ID</name>
+        </field>
+        <field>
+          <id>OBJECT_REVISION</id>
+          <enabled>Y</enabled>
+          <name>OBJECT_REVISION</name>
+        </field>
+        <field>
+          <id>PARENT_CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>PARENT_CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>ROOT_CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>ROOT_CHANNEL_ID</name>
+        </field>
+      </channel-log-table>
+      <step-log-table>
+        <connection />
+        <schema />
+        <table />
+        <timeout_days />
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>LOG_DATE</id>
+          <enabled>Y</enabled>
+          <name>LOG_DATE</name>
+        </field>
+        <field>
+          <id>TRANSNAME</id>
+          <enabled>Y</enabled>
+          <name>TRANSNAME</name>
+        </field>
+        <field>
+          <id>STEPNAME</id>
+          <enabled>Y</enabled>
+          <name>STEPNAME</name>
+        </field>
+        <field>
+          <id>STEP_COPY</id>
+          <enabled>Y</enabled>
+          <name>STEP_COPY</name>
+        </field>
+        <field>
+          <id>LINES_READ</id>
+          <enabled>Y</enabled>
+          <name>LINES_READ</name>
+        </field>
+        <field>
+          <id>LINES_WRITTEN</id>
+          <enabled>Y</enabled>
+          <name>LINES_WRITTEN</name>
+        </field>
+        <field>
+          <id>LINES_UPDATED</id>
+          <enabled>Y</enabled>
+          <name>LINES_UPDATED</name>
+        </field>
+        <field>
+          <id>LINES_INPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_INPUT</name>
+        </field>
+        <field>
+          <id>LINES_OUTPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_OUTPUT</name>
+        </field>
+        <field>
+          <id>LINES_REJECTED</id>
+          <enabled>Y</enabled>
+          <name>LINES_REJECTED</name>
+        </field>
+        <field>
+          <id>ERRORS</id>
+          <enabled>Y</enabled>
+          <name>ERRORS</name>
+        </field>
+        <field>
+          <id>LOG_FIELD</id>
+          <enabled>N</enabled>
+          <name>LOG_FIELD</name>
+        </field>
+      </step-log-table>
+      <metrics-log-table>
+        <connection />
+        <schema />
+        <table />
+        <timeout_days />
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>LOG_DATE</id>
+          <enabled>Y</enabled>
+          <name>LOG_DATE</name>
+        </field>
+        <field>
+          <id>METRICS_DATE</id>
+          <enabled>Y</enabled>
+          <name>METRICS_DATE</name>
+        </field>
+        <field>
+          <id>METRICS_CODE</id>
+          <enabled>Y</enabled>
+          <name>METRICS_CODE</name>
+        </field>
+        <field>
+          <id>METRICS_DESCRIPTION</id>
+          <enabled>Y</enabled>
+          <name>METRICS_DESCRIPTION</name>
+        </field>
+        <field>
+          <id>METRICS_SUBJECT</id>
+          <enabled>Y</enabled>
+          <name>METRICS_SUBJECT</name>
+        </field>
+        <field>
+          <id>METRICS_TYPE</id>
+          <enabled>Y</enabled>
+          <name>METRICS_TYPE</name>
+        </field>
+        <field>
+          <id>METRICS_VALUE</id>
+          <enabled>Y</enabled>
+          <name>METRICS_VALUE</name>
+        </field>
+      </metrics-log-table>
+    </log>
+    <maxdate>
+      <connection />
+      <table />
+      <field />
+      <offset>0.0</offset>
+      <maxdiff>0.0</maxdiff>
+    </maxdate>
+    <size_rowset>10000</size_rowset>
+    <sleep_time_empty>50</sleep_time_empty>
+    <sleep_time_full>50</sleep_time_full>
+    <unique_connections>N</unique_connections>
+    <feedback_shown>Y</feedback_shown>
+    <feedback_size>50000</feedback_size>
+    <using_thread_priorities>Y</using_thread_priorities>
+    <shared_objects_file />
+    <capture_step_performance>N</capture_step_performance>
+    <step_performance_capturing_delay>1000</step_performance_capturing_delay>
+    <step_performance_capturing_size_limit>100</step_performance_capturing_size_limit>
+    <dependencies>
+    </dependencies>
+    <partitionschemas>
+      <partitionschema>
+        <name>id</name>
+        <partition>
+          <id>p1</id>
+        </partition>
+        <partition>
+          <id>p2</id>
+        </partition>
+        <partition>
+          <id>p3</id>
+        </partition>
+        <partition>
+          <id>p4</id>
+        </partition>
+        <dynamic>N</dynamic>
+        <partitions_per_slave />
+      </partitionschema>
+    </partitionschemas>
+    <slaveservers>
+      <slaveserver>
+        <name>sandbox</name>
+        <hostname>sandbox.kettle.be</hostname>
+        <port>8080</port>
+        <webAppName>spoon</webAppName>
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>slave1</name>
+        <hostname>localhost</hostname>
+        <port>8300</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>slave2</name>
+        <hostname>localhost</hostname>
+        <port>8301</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+    </slaveservers>
+    <clusterschemas>
+    </clusterschemas>
+    <created_user>-</created_user>
+    <created_date>2018/09/17 13:03:37.407</created_date>
+    <modified_user>-</modified_user>
+    <modified_date>2018/09/17 13:03:37.407</modified_date>
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
+    <is_key_private>N</is_key_private>
+  </info>
+  <notepads>
+  </notepads>
+  <order>
+    <hop>
+      <from>Split BeerTypes</from>
+      <to>pct</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>pct</from>
+      <to>StrengthEvaluation</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Remove *</from>
+      <to>Split BeerTypes</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>StrengthEvaluation</from>
+      <to>Neo4j Graph Output</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Read Beers</from>
+      <to>Remove *</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>beers*.csv</from>
+      <to>Run import</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Neo4j Split Graph</from>
+      <to>beers*.csv</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Neo4j Graph Output</from>
+      <to>graph only</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>graph only</from>
+      <to>Neo4j Split Graph</to>
+      <enabled>Y</enabled>
+    </hop>
+  </order>
+  <step>
+    <name>Neo4j Graph Output</name>
+    <type>Neo4jGraphOutput</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>Demo</connection>
+    <model>Belgian Beers</model>
+    <batch_size>10000</batch_size>
+    <create_indexes>Y</create_indexes>
+    <returning_graph>Y</returning_graph>
+    <return_graph_field>graph</return_graph_field>
+    <mappings>
+      <mapping>
+        <source_field>BeerBrand</source_field>
+        <target_type>Node</target_type>
+        <target_name>Brand</target_name>
+        <target_property>name</target_property>
+      </mapping>
+      <mapping>
+        <source_field>pct</source_field>
+        <target_type>Node</target_type>
+        <target_name>Strength</target_name>
+        <target_property>pct</target_property>
+      </mapping>
+      <mapping>
+        <source_field>AlcoholPercentage</source_field>
+        <target_type>Node</target_type>
+        <target_name>Strength</target_name>
+        <target_property>label</target_property>
+      </mapping>
+      <mapping>
+        <source_field>Brewery</source_field>
+        <target_type>Node</target_type>
+        <target_name>Brewery</target_name>
+        <target_property>name</target_property>
+      </mapping>
+      <mapping>
+        <source_field>BeerType</source_field>
+        <target_type>Node</target_type>
+        <target_name>Type</target_name>
+        <target_property>name</target_property>
+      </mapping>
+      <mapping>
+        <source_field>StrengthEvaluation</source_field>
+        <target_type>Node</target_type>
+        <target_name>Evaluation</target_name>
+        <target_property>label</target_property>
+      </mapping>
+      <mapping>
+        <source_field>BeerBrand</source_field>
+        <target_type>Node</target_type>
+        <target_name>Brewery</target_name>
+        <target_property>brand</target_property>
+      </mapping>
+    </mappings>
+    <attributes />
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>320</xloc>
+      <yloc>224</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Neo4j Split Graph</name>
+    <type>Neo4jSplitGraph</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <graph_field>graph</graph_field>
+    <type_field>type</type_field>
+    <id_field>id</id_field>
+    <property_set_field>set</property_set_field>
+    <attributes />
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>752</xloc>
+      <yloc>224</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Read Beers</name>
+    <type>CsvInput</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <filename>${Internal.Entry.Current.Directory}/files/beers.csv</filename>
+    <filename_field>filename</filename_field>
+    <rownum_field />
+    <include_filename>N</include_filename>
+    <separator>,</separator>
+    <enclosure>"</enclosure>
+    <header>Y</header>
+    <buffer_size>50000</buffer_size>
+    <lazy_conversion>N</lazy_conversion>
+    <add_filename_result>N</add_filename_result>
+    <parallel>Y</parallel>
+    <newline_possible>N</newline_possible>
+    <encoding />
+    <fields>
+      <field>
+        <name>BeerBrand</name>
+        <type>String</type>
+        <format />
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>76</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>BeerTypes</name>
+        <type>String</type>
+        <format />
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>41</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>AlcoholPercentage</name>
+        <type>String</type>
+        <format />
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>11</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Brewery</name>
+        <type>String</type>
+        <format />
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>75</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+    </fields>
+    <attributes />
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>128</xloc>
+      <yloc>80</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Remove *</name>
+    <type>ReplaceString</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <fields>
+      <field>
+        <in_stream_name>BeerBrand</in_stream_name>
+        <out_stream_name />
+        <use_regex>yes</use_regex>
+        <replace_string>\*</replace_string>
+        <replace_by_string />
+        <set_empty_string>N</set_empty_string>
+        <replace_field_by_string />
+        <whole_word>no</whole_word>
+        <case_sensitive>no</case_sensitive>
+        <is_unicode>no</is_unicode>
+      </field>
+      <field>
+        <in_stream_name>Brewery</in_stream_name>
+        <out_stream_name />
+        <use_regex>yes</use_regex>
+        <replace_string>\*</replace_string>
+        <replace_by_string />
+        <set_empty_string>N</set_empty_string>
+        <replace_field_by_string />
+        <whole_word>no</whole_word>
+        <case_sensitive>no</case_sensitive>
+        <is_unicode>no</is_unicode>
+      </field>
+      <field>
+        <in_stream_name>BeerBrand</in_stream_name>
+        <out_stream_name />
+        <use_regex>yes</use_regex>
+        <replace_string>\n</replace_string>
+        <replace_by_string> </replace_by_string>
+        <set_empty_string>N</set_empty_string>
+        <replace_field_by_string />
+        <whole_word>no</whole_word>
+        <case_sensitive>no</case_sensitive>
+        <is_unicode>no</is_unicode>
+      </field>
+      <field>
+        <in_stream_name>Brewery</in_stream_name>
+        <out_stream_name />
+        <use_regex>yes</use_regex>
+        <replace_string>\n</replace_string>
+        <replace_by_string> </replace_by_string>
+        <set_empty_string>N</set_empty_string>
+        <replace_field_by_string />
+        <whole_word>no</whole_word>
+        <case_sensitive>no</case_sensitive>
+        <is_unicode>no</is_unicode>
+      </field>
+    </fields>
+    <attributes />
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>320</xloc>
+      <yloc>80</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Run import</name>
+    <type>Neo4jImport</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <filename_field_name>filename</filename_field_name>
+    <file_type_field_name>fileType</file_type_field_name>
+    <admin_command>neo4j-import</admin_command>
+    <base_folder>${TARGET_FOLDER}</base_folder>
+    <report_file>import.report</report_file>
+    <db_name>graph.db</db_name>
+    <max_memory />
+    <ignore_duplicate_nodes>N</ignore_duplicate_nodes>
+    <ignore_missing_nodes>N</ignore_missing_nodes>
+    <ignore_extra_columns>N</ignore_extra_columns>
+    <high_io>Y</high_io>
+    <multi_line>N</multi_line>
+    <skip_bad_relationships>N</skip_bad_relationships>
+    <read_buffer_size>4M</read_buffer_size>
+    <attributes />
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1424</xloc>
+      <yloc>224</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Split BeerTypes</name>
+    <type>SplitFieldToRows3</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <splitfield>BeerTypes</splitfield>
+    <delimiter>,\s*</delimiter>
+    <newfield>BeerType</newfield>
+    <rownum>N</rownum>
+    <rownum_field />
+    <resetrownumber>Y</resetrownumber>
+    <delimiter_is_regex>Y</delimiter_is_regex>
+    <attributes />
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>496</xloc>
+      <yloc>80</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>StrengthEvaluation</name>
+    <type>NumberRange</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <inputField>pct</inputField>
+    <outputField>StrengthEvaluation</outputField>
+    <fallBackValue />
+    <rules>
+      <rule>
+        <lower_bound>-1.7976931348623157E308</lower_bound>
+        <upper_bound>3.5</upper_bound>
+        <value>Low</value>
+      </rule>
+      <rule>
+        <lower_bound>3.5</lower_bound>
+        <upper_bound>5.0</upper_bound>
+        <value>Medium</value>
+      </rule>
+      <rule>
+        <lower_bound>5.0</lower_bound>
+        <upper_bound>8.0</upper_bound>
+        <value>High</value>
+      </rule>
+      <rule>
+        <lower_bound>8.0</lower_bound>
+        <upper_bound>12.0</upper_bound>
+        <value>Very High</value>
+      </rule>
+      <rule>
+        <lower_bound>12.0</lower_bound>
+        <upper_bound>1.7976931348623157E308</upper_bound>
+        <value>Extreme</value>
+      </rule>
+    </rules>
+    <attributes />
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>816</xloc>
+      <yloc>80</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>beers*.csv</name>
+    <type>Neo4jLoad</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>ModPartitioner</method>
+      <schema_name>id</schema_name>
+      <field_name>id</field_name>
+    </partitioning>
+    <graph_field_name>graph</graph_field_name>
+    <base_folder>${TARGET_FOLDER}</base_folder>
+    <uniqueness_strategy>Last</uniqueness_strategy>
+    <files_prefix>beers</files_prefix>
+    <filename_field>filename</filename_field>
+    <file_type_field>fileType</file_type_field>
+    <attributes />
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1216</xloc>
+      <yloc>224</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>graph only</name>
+    <type>SelectValues</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <fields>
+      <field>
+        <name>graph</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes />
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>544</xloc>
+      <yloc>224</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>pct</name>
+    <type>SelectValues</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <fields>
+      <field>
+        <name>BeerBrand</name>
+      </field>
+      <field>
+        <name>AlcoholPercentage</name>
+        <rename>pct</rename>
+      </field>
+      <field>
+        <name>AlcoholPercentage</name>
+      </field>
+      <field>
+        <name>Brewery</name>
+      </field>
+      <field>
+        <name>BeerType</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+      <meta>
+        <name>pct</name>
+        <rename>pct</rename>
+        <type>Number</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask>##.##'%'</conversion_mask>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale />
+        <date_format_timezone />
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding />
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol />
+        <storage_type />
+      </meta>
+    </fields>
+    <attributes />
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>656</xloc>
+      <yloc>80</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step_error_handling>
+  </step_error_handling>
+  <slave-step-copy-partition-distribution>
+  </slave-step-copy-partition-distribution>
+  <slave_transformation>N</slave_transformation>
+  <attributes>
+    <group>
+      <name>debug_plugin</name>
+      <attribute>
+        <key>Neo4j Graph Output : condition</key>
+        <value>PGNvbmRpdGlvbj4KIDxuZWdhdGVkPk48L25lZ2F0ZWQ+CiA8bGVmdHZhbHVlLz4KIDxmdW5jdGlvbj49PC9mdW5jdGlvbj4KIDxyaWdodHZhbHVlLz4KIDwvY29uZGl0aW9uPgo=</value>
+      </attribute>
+      <attribute>
+        <key>Neo4j Graph Output : start_row</key>
+        <value>5</value>
+      </attribute>
+      <attribute>
+        <key>Neo4j Graph Output : end_row</key>
+        <value>5</value>
+      </attribute>
+      <attribute>
+        <key>Neo4j Graph Output : log_level</key>
+        <value>Rowlevel</value>
+      </attribute>
+    </group>
+  </attributes>
+</transformation>

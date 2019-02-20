@@ -1,0 +1,59 @@
+{
+  "relationships": [
+    {
+      "name": "A - B",
+      "label": "RELATIONSHIP_LABEL",
+      "source": "Node A",
+      "properties": [],
+      "target": "Node B"
+    }
+  ],
+  "nodes": [
+    {
+      "name": "Node A",
+      "properties": [
+        {
+          "name": "id",
+          "type": "Integer",
+          "primary": true
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "primary": false
+        }
+      ],
+      "labels": [
+        "A"
+      ]
+    },
+    {
+      "name": "Node B",
+      "properties": [
+        {
+          "name": "id",
+          "type": "Integer",
+          "primary": true
+        },
+        {
+          "name": "someValue",
+          "type": "Float",
+          "primary": false
+        },
+        {
+          "name": "aDate",
+          "type": "LocalDateTime",
+          "primary": false
+        },
+        {
+          "name": "aFlag",
+          "type": "Boolean",
+          "primary": false
+        }
+      ],
+      "labels": [
+        "B"
+      ]
+    }
+  ]
+}
