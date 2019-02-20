@@ -551,7 +551,7 @@
       <method>none</method>
       <schema_name />
     </partitioning>
-    <connection>Local</connection>
+    <connection>Demo</connection>
     <cypher>MATCH(s:SlaveServer) WHERE s.active RETURN s.name as slaveName</cypher>
     <batch_size />
     <cypher_from_field>N</cypher_from_field>

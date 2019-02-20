@@ -554,7 +554,7 @@ This transformation should be scheduled to run continuously, every 10 seconds or
       <method>none</method>
       <schema_name />
     </partitioning>
-    <connection>Local</connection>
+    <connection>Demo</connection>
     <batch_size>1</batch_size>
     <key />
     <create_indexes>Y</create_indexes>
@@ -608,7 +608,7 @@ This transformation should be scheduled to run continuously, every 10 seconds or
       <method>none</method>
       <schema_name />
     </partitioning>
-    <connection>Local</connection>
+    <connection>Demo</connection>
     <cypher>MATCH(fq:FileQueue { filename : {filename}}) return fq.filename as found</cypher>
     <batch_size />
     <cypher_from_field>N</cypher_from_field>

@@ -551,7 +551,7 @@
       <method>none</method>
       <schema_name />
     </partitioning>
-    <connection>Local</connection>
+    <connection>Demo</connection>
     <cypher>UNWIND $events AS event
 MERGE (y:Year { year: event.year })
 MERGE (y)&lt;-[:IN]-(e:Event { id: event.id })

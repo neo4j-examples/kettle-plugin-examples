@@ -573,7 +573,7 @@ This way you can re-use the same transformation to execute multiple files with C
       <method>none</method>
       <schema_name />
     </partitioning>
-    <connection>Local</connection>
+    <connection>Demo</connection>
     <cypher />
     <batch_size>1</batch_size>
     <cypher_from_field>Y</cypher_from_field>
