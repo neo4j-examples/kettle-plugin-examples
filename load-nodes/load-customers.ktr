@@ -534,7 +534,7 @@
   </notepads>
   <order>
     <hop>
-      <from>customers-25M.txt</from>
+      <from>files/customers-100.txt</from>
       <to>Create :Customer nodes</to>
       <enabled>Y</enabled>
     </hop>
@@ -652,7 +652,7 @@
     </GUI>
   </step>
   <step>
-    <name>customers-25M.txt</name>
+    <name>files/customers-100.txt</name>
     <type>CsvInput</type>
     <description />
     <distribute>Y</distribute>
@@ -662,7 +662,7 @@
       <method>none</method>
       <schema_name />
     </partitioning>
-    <filename>/home/matt/parking/customers-25M.txt</filename>
+    <filename>${Internal.Entry.Current.Directory}/files/customers-100.txt</filename>
     <filename_field />
     <rownum_field />
     <include_filename>N</include_filename>
