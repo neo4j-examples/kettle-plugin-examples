@@ -526,12 +526,12 @@
     <hop>
       <from>:Page nodes</from>
       <to>Build page-nodes CSV file</to>
-      <enabled>N</enabled>
+      <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Build page-nodes CSV file</from>
       <to>temp/node-files.txt</to>
-      <enabled>N</enabled>
+      <enabled>Y</enabled>
     </hop>
     <hop>
       <from>files/clickstream-enwiki-2018-09.tsv.gz</from>
@@ -541,12 +541,12 @@
     <hop>
       <from>:ClickCollection nodes</from>
       <to>Build ClickCollection-nodes CSV file</to>
-      <enabled>N</enabled>
+      <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Build ClickCollection-nodes CSV file</from>
       <to>temp/node-files.txt</to>
-      <enabled>N</enabled>
+      <enabled>Y</enabled>
     </hop>
     <hop>
       <from>unique</from>
