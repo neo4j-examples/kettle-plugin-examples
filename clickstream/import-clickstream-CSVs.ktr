@@ -11,7 +11,7 @@
     <parameters>
       <parameter>
         <name>TARGET_FOLDER</name>
-        <default_value />
+        <default_value>/home/matt/.config/Neo4j Desktop/Application/neo4jDatabases/database-56ad9f75-3d9e-48ab-a33d-7b6ce1765871/installation-3.5.1/</default_value>
         <description />
       </parameter>
     </parameters>
@@ -456,9 +456,9 @@
         <sslMode>N</sslMode>
       </slaveserver>
       <slaveserver>
-        <name>slave1</name>
+        <name>slave2</name>
         <hostname>localhost</hostname>
-        <port>8300</port>
+        <port>8301</port>
         <webAppName />
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
@@ -469,9 +469,9 @@
         <sslMode>N</sslMode>
       </slaveserver>
       <slaveserver>
-        <name>slave2</name>
+        <name>slave1</name>
         <hostname>localhost</hostname>
-        <port>8301</port>
+        <port>8300</port>
         <webAppName />
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
@@ -583,7 +583,7 @@
     <admin_command>neo4j-import</admin_command>
     <base_folder>${TARGET_FOLDER}</base_folder>
     <report_file>import.report</report_file>
-    <db_name>clickstream.db</db_name>
+    <db_name>graph.db</db_name>
     <max_memory>1g</max_memory>
     <ignore_duplicate_nodes>N</ignore_duplicate_nodes>
     <ignore_missing_nodes>N</ignore_missing_nodes>
