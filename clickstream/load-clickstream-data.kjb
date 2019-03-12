@@ -13,7 +13,7 @@
   <parameters>
     <parameter>
       <name>TARGET_FOLDER</name>
-      <default_value>/home/matt/.config/Neo4j Desktop/Application/neo4jDatabases/database-316b79e5-2d89-419e-a851-a71e6dcff17a/installation-3.5.1/</default_value>
+      <default_value>/home/matt/.config/Neo4j Desktop/Application/neo4jDatabases/database-56ad9f75-3d9e-48ab-a33d-7b6ce1765871/installation-3.5.1/</default_value>
       <description />
     </parameter>
   </parameters>

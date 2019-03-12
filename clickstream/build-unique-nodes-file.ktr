@@ -589,6 +589,7 @@
     <returning_graph>Y</returning_graph>
     <return_graph_field>graph</return_graph_field>
     <from>
+      <read_only_from_node>N</read_only_from_node>
       <labels>
         <label />
         <value>ClickCollection</value>
@@ -615,6 +616,7 @@
       </properties>
     </from>
     <to>
+      <read_only_to_node>N</read_only_to_node>
       <labels />
       <properties />
     </to>
@@ -652,9 +654,10 @@
     <create_indexes>N</create_indexes>
     <use_create>Y</use_create>
     <only_create_relationships>N</only_create_relationships>
-    <returning_graph>N</returning_graph>
+    <returning_graph>Y</returning_graph>
     <return_graph_field>graph</return_graph_field>
     <from>
+      <read_only_from_node>N</read_only_from_node>
       <labels>
         <label />
         <value>Page</value>
@@ -669,6 +672,7 @@
       </properties>
     </from>
     <to>
+      <read_only_to_node>N</read_only_to_node>
       <labels />
       <properties />
     </to>

@@ -11,7 +11,7 @@
     <parameters>
       <parameter>
         <name>TARGET_FOLDER</name>
-        <default_value />
+        <default_value>/home/matt/.config/Neo4j Desktop/Application/neo4jDatabases/database-56ad9f75-3d9e-48ab-a33d-7b6ce1765871/installation-3.5.1</default_value>
         <description />
       </parameter>
     </parameters>
@@ -428,7 +428,16 @@
     </dependencies>
     <partitionschemas>
       <partitionschema>
-        <name>ppp</name>
+        <name>links</name>
+        <partition>
+          <id>link1</id>
+        </partition>
+        <partition>
+          <id>link2</id>
+        </partition>
+        <partition>
+          <id>link3</id>
+        </partition>
         <dynamic>N</dynamic>
         <partitions_per_slave />
       </partitionschema>
@@ -461,9 +470,9 @@
         <sslMode>N</sslMode>
       </slaveserver>
       <slaveserver>
-        <name>slave1</name>
+        <name>slave2</name>
         <hostname>localhost</hostname>
-        <port>8300</port>
+        <port>8301</port>
         <webAppName />
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
@@ -474,9 +483,9 @@
         <sslMode>N</sslMode>
       </slaveserver>
       <slaveserver>
-        <name>slave2</name>
+        <name>slave1</name>
         <hostname>localhost</hostname>
-        <port>8301</port>
+        <port>8300</port>
         <webAppName />
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
@@ -500,13 +509,13 @@
   </notepads>
   <order>
     <hop>
-      <from>[:CLICK_*]</from>
+      <from>:CLICK_</from>
       <to>Build link-rels CSV file</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Relationship</from>
-      <to>[:CLICK_*]</to>
+      <to>:CLICK_</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -526,22 +535,22 @@
     </hop>
     <hop>
       <from>id</from>
-      <to>[:FROM]</to>
+      <to>:FROM</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>[:FROM]</from>
+      <from>:FROM</from>
       <to>Build from-rels CSV file</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>[:TO]</from>
+      <from>:TO</from>
       <to>Build to-rels CSV file</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>id </from>
-      <to>[:TO]</to>
+      <to>:TO</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -561,61 +570,22 @@
     </hop>
   </order>
   <step>
-    <name>[:CLICK_*]</name>
-    <type>Neo4JOutput</type>
+    <name>Build from-rels CSV file</name>
+    <type>Neo4jLoad</type>
     <description />
     <distribute>Y</distribute>
     <custom_distribution />
-    <copies>1</copies>
+    <copies>3</copies>
     <partitioning>
       <method>none</method>
       <schema_name />
     </partitioning>
-    <connection>Demo</connection>
-    <batch_size>100000</batch_size>
-    <key />
-    <create_indexes>N</create_indexes>
-    <use_create>N</use_create>
-    <only_create_relationships>Y</only_create_relationships>
-    <returning_graph>Y</returning_graph>
-    <return_graph_field>graph</return_graph_field>
-    <from>
-      <labels>
-        <label />
-        <value>Page</value>
-      </labels>
-      <properties>
-        <property>
-          <name>title</name>
-          <value>prev</value>
-          <type>String</type>
-          <primary>Y</primary>
-        </property>
-      </properties>
-    </from>
-    <to>
-      <labels>
-        <label />
-        <value>Page</value>
-      </labels>
-      <properties>
-        <property>
-          <name>title</name>
-          <value>curr</value>
-          <type>String</type>
-          <primary>Y</primary>
-        </property>
-      </properties>
-    </to>
-    <relationship>type</relationship>
-    <relationship_value />
-    <relprops>
-      <relprop>
-        <name>occurrences</name>
-        <value>occurrences</value>
-        <type>String</type>
-      </relprop>
-    </relprops>
+    <graph_field_name>graph</graph_field_name>
+    <base_folder>${TARGET_FOLDER}</base_folder>
+    <uniqueness_strategy>None</uniqueness_strategy>
+    <files_prefix>from</files_prefix>
+    <filename_field>filename</filename_field>
+    <file_type_field>fileType</file_type_field>
     <attributes />
     <cluster_schema />
     <remotesteps>
@@ -625,8 +595,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>640</xloc>
-      <yloc>96</yloc>
+      <xloc>864</xloc>
+      <yloc>208</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -636,10 +606,10 @@
     <description />
     <distribute>Y</distribute>
     <custom_distribution />
-    <copies>1</copies>
+    <copies>3</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name>links</schema_name>
     </partitioning>
     <graph_field_name>graph</graph_field_name>
     <base_folder>${TARGET_FOLDER}</base_folder>
@@ -658,6 +628,37 @@
     <GUI>
       <xloc>864</xloc>
       <yloc>96</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Build to-rels CSV file</name>
+    <type>Neo4jLoad</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>3</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <graph_field_name>graph</graph_field_name>
+    <base_folder>${TARGET_FOLDER}</base_folder>
+    <uniqueness_strategy>None</uniqueness_strategy>
+    <files_prefix>to</files_prefix>
+    <filename_field>filename</filename_field>
+    <file_type_field>fileType</file_type_field>
+    <attributes />
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>864</xloc>
+      <yloc>320</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -706,6 +707,210 @@ var relationship = "CLICK_"+upper(type);
     <GUI>
       <xloc>464</xloc>
       <yloc>96</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>:CLICK_</name>
+    <type>Neo4JOutput</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>Demo</connection>
+    <batch_size>100000</batch_size>
+    <key />
+    <create_indexes>N</create_indexes>
+    <use_create>N</use_create>
+    <only_create_relationships>Y</only_create_relationships>
+    <returning_graph>Y</returning_graph>
+    <return_graph_field>graph</return_graph_field>
+    <from>
+      <read_only_from_node>N</read_only_from_node>
+      <labels>
+        <label />
+        <value>Page</value>
+      </labels>
+      <properties>
+        <property>
+          <name>title</name>
+          <value>prev</value>
+          <type>String</type>
+          <primary>Y</primary>
+        </property>
+      </properties>
+    </from>
+    <to>
+      <read_only_to_node>N</read_only_to_node>
+      <labels>
+        <label />
+        <value>Page</value>
+      </labels>
+      <properties>
+        <property>
+          <name>title</name>
+          <value>curr</value>
+          <type>String</type>
+          <primary>Y</primary>
+        </property>
+      </properties>
+    </to>
+    <relationship>type</relationship>
+    <relationship_value />
+    <relprops>
+      <relprop>
+        <name>occurrences</name>
+        <value>occurrences</value>
+        <type>String</type>
+      </relprop>
+    </relprops>
+    <attributes />
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>640</xloc>
+      <yloc>96</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>:FROM</name>
+    <type>Neo4JOutput</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>Demo</connection>
+    <batch_size>100000</batch_size>
+    <key />
+    <create_indexes>N</create_indexes>
+    <use_create>N</use_create>
+    <only_create_relationships>Y</only_create_relationships>
+    <returning_graph>Y</returning_graph>
+    <return_graph_field>graph</return_graph_field>
+    <from>
+      <read_only_from_node>N</read_only_from_node>
+      <labels>
+        <label />
+        <value>Page</value>
+      </labels>
+      <properties>
+        <property>
+          <name>title</name>
+          <value>prev</value>
+          <type>String</type>
+          <primary>Y</primary>
+        </property>
+      </properties>
+    </from>
+    <to>
+      <read_only_to_node>N</read_only_to_node>
+      <labels>
+        <label />
+        <value>ClickCollection</value>
+      </labels>
+      <properties>
+        <property>
+          <name>id</name>
+          <value>id</value>
+          <type>String</type>
+          <primary>Y</primary>
+        </property>
+      </properties>
+    </to>
+    <relationship />
+    <relationship_value>FROM</relationship_value>
+    <relprops />
+    <attributes />
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>640</xloc>
+      <yloc>208</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>:TO</name>
+    <type>Neo4JOutput</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>Demo</connection>
+    <batch_size>100000</batch_size>
+    <key />
+    <create_indexes>N</create_indexes>
+    <use_create>N</use_create>
+    <only_create_relationships>Y</only_create_relationships>
+    <returning_graph>Y</returning_graph>
+    <return_graph_field>graph</return_graph_field>
+    <from>
+      <read_only_from_node>N</read_only_from_node>
+      <labels>
+        <label />
+        <value>ClickCollection</value>
+      </labels>
+      <properties>
+        <property>
+          <name>id</name>
+          <value>id</value>
+          <type>String</type>
+          <primary>Y</primary>
+        </property>
+      </properties>
+    </from>
+    <to>
+      <read_only_to_node>N</read_only_to_node>
+      <labels>
+        <label />
+        <value>Page</value>
+      </labels>
+      <properties>
+        <property>
+          <name>title</name>
+          <value>curr</value>
+          <type>String</type>
+          <primary>Y</primary>
+        </property>
+      </properties>
+    </to>
+    <relationship />
+    <relationship_value>TO</relationship_value>
+    <relprops />
+    <attributes />
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>640</xloc>
+      <yloc>320</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -860,6 +1065,100 @@ var relationship = "CLICK_"+upper(type);
     </GUI>
   </step>
   <step>
+    <name>id</name>
+    <type>ScriptValueMod</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>
+var id = type+"-"+occurrences
+
+</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>id</name>
+        <rename>id</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+    </fields>
+    <attributes />
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>464</xloc>
+      <yloc>208</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>id </name>
+    <type>ScriptValueMod</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>
+var id = type+"-"+occurrences
+
+</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>id</name>
+        <rename>id</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+    </fields>
+    <attributes />
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>464</xloc>
+      <yloc>320</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>temp/rels-files.txt</name>
     <type>TextFileOutput</type>
     <description />
@@ -936,290 +1235,6 @@ var relationship = "CLICK_"+upper(type);
     </remotesteps>
     <GUI>
       <xloc>1104</xloc>
-      <yloc>320</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>[:FROM]</name>
-    <type>Neo4JOutput</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <connection>Demo</connection>
-    <batch_size>100000</batch_size>
-    <key />
-    <create_indexes>N</create_indexes>
-    <use_create>N</use_create>
-    <only_create_relationships>Y</only_create_relationships>
-    <returning_graph>Y</returning_graph>
-    <return_graph_field>graph</return_graph_field>
-    <from>
-      <labels>
-        <label />
-        <value>Page</value>
-      </labels>
-      <properties>
-        <property>
-          <name>title</name>
-          <value>prev</value>
-          <type>String</type>
-          <primary>Y</primary>
-        </property>
-      </properties>
-    </from>
-    <to>
-      <labels>
-        <label />
-        <value>ClickCollection</value>
-      </labels>
-      <properties>
-        <property>
-          <name>id</name>
-          <value>id</value>
-          <type>String</type>
-          <primary>Y</primary>
-        </property>
-      </properties>
-    </to>
-    <relationship />
-    <relationship_value>FROM</relationship_value>
-    <relprops />
-    <attributes />
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>640</xloc>
-      <yloc>208</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>id</name>
-    <type>ScriptValueMod</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <compatible>N</compatible>
-    <optimizationLevel>9</optimizationLevel>
-    <jsScripts>
-      <jsScript>
-        <jsScript_type>0</jsScript_type>
-        <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>
-var id = type+"-"+occurrences
-
-</jsScript_script>
-      </jsScript>
-    </jsScripts>
-    <fields>
-      <field>
-        <name>id</name>
-        <rename>id</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>
-    </fields>
-    <attributes />
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>464</xloc>
-      <yloc>208</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Build from-rels CSV file</name>
-    <type>Neo4jLoad</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <graph_field_name>graph</graph_field_name>
-    <base_folder>${TARGET_FOLDER}</base_folder>
-    <uniqueness_strategy>None</uniqueness_strategy>
-    <files_prefix>from</files_prefix>
-    <filename_field>filename</filename_field>
-    <file_type_field>fileType</file_type_field>
-    <attributes />
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>864</xloc>
-      <yloc>208</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>[:TO]</name>
-    <type>Neo4JOutput</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <connection>Demo</connection>
-    <batch_size>100000</batch_size>
-    <key />
-    <create_indexes>N</create_indexes>
-    <use_create>N</use_create>
-    <only_create_relationships>Y</only_create_relationships>
-    <returning_graph>Y</returning_graph>
-    <return_graph_field>graph</return_graph_field>
-    <from>
-      <labels>
-        <label />
-        <value>ClickCollection</value>
-      </labels>
-      <properties>
-        <property>
-          <name>id</name>
-          <value>id</value>
-          <type>String</type>
-          <primary>Y</primary>
-        </property>
-      </properties>
-    </from>
-    <to>
-      <labels>
-        <label />
-        <value>Page</value>
-      </labels>
-      <properties>
-        <property>
-          <name>title</name>
-          <value>curr</value>
-          <type>String</type>
-          <primary>Y</primary>
-        </property>
-      </properties>
-    </to>
-    <relationship />
-    <relationship_value>TO</relationship_value>
-    <relprops />
-    <attributes />
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>640</xloc>
-      <yloc>320</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>id </name>
-    <type>ScriptValueMod</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <compatible>N</compatible>
-    <optimizationLevel>9</optimizationLevel>
-    <jsScripts>
-      <jsScript>
-        <jsScript_type>0</jsScript_type>
-        <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>
-var id = type+"-"+occurrences
-
-</jsScript_script>
-      </jsScript>
-    </jsScripts>
-    <fields>
-      <field>
-        <name>id</name>
-        <rename>id</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>
-    </fields>
-    <attributes />
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>464</xloc>
-      <yloc>320</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Build to-rels CSV file</name>
-    <type>Neo4jLoad</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <graph_field_name>graph</graph_field_name>
-    <base_folder>${TARGET_FOLDER}</base_folder>
-    <uniqueness_strategy>None</uniqueness_strategy>
-    <files_prefix>to</files_prefix>
-    <filename_field>filename</filename_field>
-    <file_type_field>fileType</file_type_field>
-    <attributes />
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>864</xloc>
       <yloc>320</yloc>
       <draw>Y</draw>
     </GUI>
