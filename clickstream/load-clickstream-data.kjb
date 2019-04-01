@@ -373,7 +373,7 @@
       <attributes />
       <specification_method>filename</specification_method>
       <trans_object_id />
-      <filename>/home/matt/git/neo4j-examples/kettle-plugin-examples/clickstream/build-unique-nodes-file.ktr</filename>
+      <filename>${Internal.Entry.Current.Directory}/build-unique-nodes-file.ktr</filename>
       <transname />
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
