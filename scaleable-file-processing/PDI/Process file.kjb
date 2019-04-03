@@ -360,7 +360,7 @@
       <name>Mark FileQueue process start</name>
       <description />
       <type>NEO4J_CYPHER_SCRIPT</type>
-      <connection>Local</connection>
+      <connection>Demo</connection>
       <script>MATCH(f:FileQueue { filename : "${FILENAME}" } )
 SET f.processStart = localdatetime(),
     f.slaveServer = "${SLAVESERVER}"

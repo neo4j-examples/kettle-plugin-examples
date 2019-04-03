@@ -510,7 +510,7 @@
       <method>none</method>
       <schema_name />
     </partitioning>
-    <connection>Local</connection>
+    <connection>Demo</connection>
     <cypher>MATCH (s:SlaveServer)
 WHERE s.activeTransformations + s.activeJobs &lt;= s.maxActive
 RETURN count(*) as availableSlaves
@@ -554,7 +554,7 @@ RETURN count(*) as availableSlaves
       <method>none</method>
       <schema_name />
     </partitioning>
-    <connection>Local</connection>
+    <connection>Demo</connection>
     <cypher>MATCH(q:FileQueue)
 WHERE q.processStart IS NULL
 RETURN count(*) as nrQueued

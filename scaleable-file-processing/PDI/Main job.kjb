@@ -403,7 +403,7 @@
       <description />
       <type>NEO4J_CYPHER_SCRIPT</type>
       <attributes />
-      <connection>Local</connection>
+      <connection>Demo</connection>
       <script>MATCH(s:SlaveServer) DETACH DELETE s
 ;
 CREATE(:SlaveServer { name : "slave1"})
