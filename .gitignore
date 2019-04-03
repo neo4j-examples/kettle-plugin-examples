@@ -2,3 +2,4 @@
 clickstream/files/clickstream-enwiki-2018-09.tsv.gz
 clickstream/temp/*
 metastore/pentaho/
+*.xls
