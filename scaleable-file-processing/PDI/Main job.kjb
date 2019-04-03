@@ -436,7 +436,7 @@ MATCH(q:FileQueue) DETACH DELETE q
       <fields>
         <field>
           <variable_name>NEO4J_LOGGING_CONNECTION</variable_name>
-          <variable_value>Local</variable_value>
+          <variable_value>Demo</variable_value>
           <variable_type>CURRENT_JOB</variable_type>
         </field>
         <field>
