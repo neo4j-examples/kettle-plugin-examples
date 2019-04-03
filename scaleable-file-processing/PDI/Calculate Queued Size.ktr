@@ -424,6 +424,19 @@
     </partitionschemas>
     <slaveservers>
       <slaveserver>
+        <name>8888</name>
+        <hostname>localhost</hostname>
+        <port>8888</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
         <name>sandbox</name>
         <hostname>sandbox.kettle.be</hostname>
         <port>8080</port>
@@ -497,7 +510,7 @@
       <method>none</method>
       <schema_name />
     </partitioning>
-    <connection>Demo</connection>
+    <connection>Local</connection>
     <cypher>MATCH (s:SlaveServer)
 WHERE s.activeTransformations + s.activeJobs &lt;= s.maxActive
 RETURN count(*) as availableSlaves
@@ -507,6 +520,8 @@ RETURN count(*) as availableSlaves
     <cypher_field />
     <unwind>N</unwind>
     <unwind_map />
+    <returning_graph>N</returning_graph>
+    <return_graph_field />
     <mappings />
     <returns>
       <return>
@@ -514,6 +529,7 @@ RETURN count(*) as availableSlaves
         <type>Integer</type>
       </return>
     </returns>
+    <attributes />
     <cluster_schema />
     <remotesteps>
       <input>
@@ -538,7 +554,7 @@ RETURN count(*) as availableSlaves
       <method>none</method>
       <schema_name />
     </partitioning>
-    <connection>Demo</connection>
+    <connection>Local</connection>
     <cypher>MATCH(q:FileQueue)
 WHERE q.processStart IS NULL
 RETURN count(*) as nrQueued
@@ -548,6 +564,8 @@ RETURN count(*) as nrQueued
     <cypher_field />
     <unwind>N</unwind>
     <unwind_map />
+    <returning_graph>N</returning_graph>
+    <return_graph_field />
     <mappings />
     <returns>
       <return>
@@ -555,6 +573,7 @@ RETURN count(*) as nrQueued
         <type>Integer</type>
       </return>
     </returns>
+    <attributes />
     <cluster_schema />
     <remotesteps>
       <input>
@@ -588,6 +607,7 @@ RETURN count(*) as nrQueued
       </field>
     </fields>
     <use_formatting>Y</use_formatting>
+    <attributes />
     <cluster_schema />
     <remotesteps>
       <input>
@@ -621,6 +641,7 @@ RETURN count(*) as nrQueued
       </field>
     </fields>
     <use_formatting>Y</use_formatting>
+    <attributes />
     <cluster_schema />
     <remotesteps>
       <input>
@@ -639,4 +660,5 @@ RETURN count(*) as nrQueued
   <slave-step-copy-partition-distribution>
   </slave-step-copy-partition-distribution>
   <slave_transformation>N</slave_transformation>
+  <attributes />
 </transformation>

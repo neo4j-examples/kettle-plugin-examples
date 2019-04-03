@@ -424,6 +424,19 @@
     </partitionschemas>
     <slaveservers>
       <slaveserver>
+        <name>8888</name>
+        <hostname>localhost</hostname>
+        <port>8888</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
         <name>sandbox</name>
         <hostname>sandbox.kettle.be</hostname>
         <port>8080</port>
@@ -493,8 +506,8 @@ The filename and queued date are set, nothing else.
 This transformation should be scheduled to run continuously, every 10 seconds or so.</note>
       <xloc>64</xloc>
       <yloc>32</yloc>
-      <width>1113</width>
-      <heigth>146</heigth>
+      <width>1151</width>
+      <heigth>150</heigth>
       <fontname>Arial</fontname>
       <fontsize>12</fontsize>
       <fontbold>N</fontbold>
@@ -554,14 +567,19 @@ This transformation should be scheduled to run continuously, every 10 seconds or
       <method>none</method>
       <schema_name />
     </partitioning>
-    <connection>Demo</connection>
+    <connection>Local</connection>
     <batch_size>1</batch_size>
     <key />
     <create_indexes>Y</create_indexes>
     <use_create>N</use_create>
+    <only_create_relationships>N</only_create_relationships>
+    <returning_graph>N</returning_graph>
+    <return_graph_field />
     <from>
+      <read_only_from_node>N</read_only_from_node>
       <labels>
         <label>label</label>
+        <value />
       </labels>
       <properties>
         <property>
@@ -579,11 +597,14 @@ This transformation should be scheduled to run continuously, every 10 seconds or
       </properties>
     </from>
     <to>
+      <read_only_to_node>N</read_only_to_node>
       <labels />
       <properties />
     </to>
     <relationship />
+    <relationship_value />
     <relprops />
+    <attributes />
     <cluster_schema />
     <remotesteps>
       <input>
@@ -608,13 +629,15 @@ This transformation should be scheduled to run continuously, every 10 seconds or
       <method>none</method>
       <schema_name />
     </partitioning>
-    <connection>Demo</connection>
+    <connection>Local</connection>
     <cypher>MATCH(fq:FileQueue { filename : {filename}}) return fq.filename as found</cypher>
     <batch_size />
     <cypher_from_field>N</cypher_from_field>
     <cypher_field />
     <unwind>N</unwind>
     <unwind_map />
+    <returning_graph>N</returning_graph>
+    <return_graph_field />
     <mappings>
       <mapping>
         <parameter>filename</parameter>
@@ -628,6 +651,7 @@ This transformation should be scheduled to run continuously, every 10 seconds or
         <type>String</type>
       </return>
     </returns>
+    <attributes />
     <cluster_schema />
     <remotesteps>
       <input>
@@ -652,6 +676,7 @@ This transformation should be scheduled to run continuously, every 10 seconds or
       <method>none</method>
       <schema_name />
     </partitioning>
+    <attributes />
     <cluster_schema />
     <remotesteps>
       <input>
@@ -686,6 +711,7 @@ This transformation should be scheduled to run continuously, every 10 seconds or
         <rightvalue />
       </condition>
     </compare>
+    <attributes />
     <cluster_schema />
     <remotesteps>
       <input>
@@ -730,6 +756,7 @@ This transformation should be scheduled to run continuously, every 10 seconds or
       <file_required>N</file_required>
       <include_subfolders>N</include_subfolders>
     </file>
+    <attributes />
     <cluster_schema />
     <remotesteps>
       <input>
@@ -760,6 +787,7 @@ This transformation should be scheduled to run continuously, every 10 seconds or
         <type>system date (variable)</type>
       </field>
     </fields>
+    <attributes />
     <cluster_schema />
     <remotesteps>
       <input>
@@ -798,6 +826,7 @@ This transformation should be scheduled to run continuously, every 10 seconds or
         <set_empty_string>N</set_empty_string>
       </field>
     </fields>
+    <attributes />
     <cluster_schema />
     <remotesteps>
       <input>

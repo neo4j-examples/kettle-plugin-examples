@@ -492,7 +492,7 @@
       <method>none</method>
       <schema_name />
     </partitioning>
-    <connection>Demo</connection>
+    <connection>Local</connection>
     <cypher>MATCH(q:FileQueue)
 WHERE q.processStart IS NULL
 RETURN q.filename as filename

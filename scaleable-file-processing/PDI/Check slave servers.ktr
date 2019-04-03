@@ -424,6 +424,19 @@
     </partitionschemas>
     <slaveservers>
       <slaveserver>
+        <name>8888</name>
+        <hostname>localhost</hostname>
+        <port>8888</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
         <name>sandbox</name>
         <hostname>sandbox.kettle.be</hostname>
         <port>8080</port>
@@ -437,9 +450,9 @@
         <sslMode>N</sslMode>
       </slaveserver>
       <slaveserver>
-        <name>slave1</name>
+        <name>slave2</name>
         <hostname>localhost</hostname>
-        <port>8300</port>
+        <port>8301</port>
         <webAppName />
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
@@ -450,9 +463,9 @@
         <sslMode>N</sslMode>
       </slaveserver>
       <slaveserver>
-        <name>slave2</name>
+        <name>slave1</name>
         <hostname>localhost</hostname>
-        <port>8301</port>
+        <port>8300</port>
         <webAppName />
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
@@ -527,6 +540,7 @@
     <result_files_target_step />
     <result_files_file_name_field>FileName</result_files_file_name_field>
     <executors_output_step />
+    <attributes />
     <cluster_schema />
     <remotesteps>
       <input>
@@ -551,13 +565,15 @@
       <method>none</method>
       <schema_name />
     </partitioning>
-    <connection>Demo</connection>
+    <connection>Local</connection>
     <cypher>MATCH(s:SlaveServer) WHERE s.active RETURN s.name as slaveName</cypher>
     <batch_size />
     <cypher_from_field>N</cypher_from_field>
     <cypher_field />
     <unwind>N</unwind>
     <unwind_map />
+    <returning_graph>N</returning_graph>
+    <return_graph_field />
     <mappings />
     <returns>
       <return>
@@ -565,6 +581,7 @@
         <type>String</type>
       </return>
     </returns>
+    <attributes />
     <cluster_schema />
     <remotesteps>
       <input>
@@ -583,4 +600,5 @@
   <slave-step-copy-partition-distribution>
   </slave-step-copy-partition-distribution>
   <slave_transformation>N</slave_transformation>
+  <attributes />
 </transformation>

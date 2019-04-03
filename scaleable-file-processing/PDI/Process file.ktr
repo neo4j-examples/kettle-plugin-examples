@@ -785,7 +785,7 @@
       <method>none</method>
       <schema_name />
     </partitioning>
-    <connection>Demo</connection>
+    <connection>Local</connection>
     <cypher>MERGE(r:LoadResult { filename : {filename} } )
 SET r.nrRows = {nrRows}, 
     r.minId = {minId},

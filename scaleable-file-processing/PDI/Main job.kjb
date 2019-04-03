@@ -13,6 +13,19 @@
     </parameters>
   <slaveservers>
     <slaveserver>
+      <name>8888</name>
+      <hostname>localhost</hostname>
+      <port>8888</port>
+      <webAppName />
+      <username>cluster</username>
+      <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+      <proxy_hostname />
+      <proxy_port />
+      <non_proxy_hosts />
+      <master>N</master>
+      <sslMode>N</sslMode>
+    </slaveserver>
+    <slaveserver>
       <name>sandbox</name>
       <hostname>sandbox.kettle.be</hostname>
       <port>8080</port>
@@ -26,9 +39,9 @@
       <sslMode>N</sslMode>
     </slaveserver>
     <slaveserver>
-      <name>slave1</name>
+      <name>slave2</name>
       <hostname>localhost</hostname>
-      <port>8300</port>
+      <port>8301</port>
       <webAppName />
       <username>cluster</username>
       <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
@@ -39,9 +52,9 @@
       <sslMode>N</sslMode>
     </slaveserver>
     <slaveserver>
-      <name>slave2</name>
+      <name>slave1</name>
       <hostname>localhost</hostname>
-      <port>8301</port>
+      <port>8300</port>
       <webAppName />
       <username>cluster</username>
       <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
@@ -543,8 +556,8 @@ MATCH(q:FileQueue) DETACH DELETE q
 </note>
       <xloc>64</xloc>
       <yloc>160</yloc>
-      <width>818</width>
-      <heigth>290</heigth>
+      <width>831</width>
+      <heigth>298</heigth>
       <fontname>Sans</fontname>
       <fontsize>12</fontsize>
       <fontbold>N</fontbold>

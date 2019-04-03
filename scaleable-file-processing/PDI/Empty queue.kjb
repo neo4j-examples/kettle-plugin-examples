@@ -13,6 +13,19 @@
     </parameters>
   <slaveservers>
     <slaveserver>
+      <name>8888</name>
+      <hostname>localhost</hostname>
+      <port>8888</port>
+      <webAppName />
+      <username>cluster</username>
+      <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+      <proxy_hostname />
+      <proxy_port />
+      <non_proxy_hosts />
+      <master>N</master>
+      <sslMode>N</sslMode>
+    </slaveserver>
+    <slaveserver>
       <name>sandbox</name>
       <hostname>sandbox.kettle.be</hostname>
       <port>8080</port>
@@ -26,9 +39,9 @@
       <sslMode>N</sslMode>
     </slaveserver>
     <slaveserver>
-      <name>slave1</name>
+      <name>slave2</name>
       <hostname>localhost</hostname>
-      <port>8300</port>
+      <port>8301</port>
       <webAppName />
       <username>cluster</username>
       <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
@@ -39,9 +52,9 @@
       <sslMode>N</sslMode>
     </slaveserver>
     <slaveserver>
-      <name>slave2</name>
+      <name>slave1</name>
       <hostname>localhost</hostname>
-      <port>8301</port>
+      <port>8300</port>
       <webAppName />
       <username>cluster</username>
       <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
@@ -329,6 +342,7 @@
       <name>Start</name>
       <description />
       <type>SPECIAL</type>
+      <attributes />
       <start>Y</start>
       <dummy>N</dummy>
       <repeat>N</repeat>
@@ -344,11 +358,13 @@
       <nr>0</nr>
       <xloc>96</xloc>
       <yloc>80</yloc>
+      <attributes_kjc />
     </entry>
     <entry>
       <name>Process queued files</name>
       <description />
       <type>TRANS</type>
+      <attributes />
       <specification_method>filename</specification_method>
       <trans_object_id />
       <filename>${Internal.Entry.Current.Directory}/Process queued files.ktr</filename>
@@ -380,11 +396,13 @@
       <nr>0</nr>
       <xloc>1376</xloc>
       <yloc>80</yloc>
+      <attributes_kjc />
     </entry>
     <entry>
       <name>Evaluate Queue and Slaves</name>
       <description />
       <type>TRANS</type>
+      <attributes />
       <specification_method>filename</specification_method>
       <trans_object_id />
       <filename>${Internal.Entry.Current.Directory}/Calculate Queued Size.ktr</filename>
@@ -416,11 +434,13 @@
       <nr>0</nr>
       <xloc>784</xloc>
       <yloc>80</yloc>
+      <attributes_kjc />
     </entry>
     <entry>
       <name>Files queued?</name>
       <description />
       <type>SIMPLE_EVAL</type>
+      <attributes />
       <valuetype>variable</valuetype>
       <fieldname />
       <variablename>NRQUEUED</variablename>
@@ -438,11 +458,13 @@
       <nr>0</nr>
       <xloc>992</xloc>
       <yloc>80</yloc>
+      <attributes_kjc />
     </entry>
     <entry>
       <name>Slaves avalailable?</name>
       <description />
       <type>SIMPLE_EVAL</type>
+      <attributes />
       <valuetype>variable</valuetype>
       <fieldname />
       <variablename>AVAILABLESLAVES</variablename>
@@ -460,11 +482,13 @@
       <nr>0</nr>
       <xloc>1184</xloc>
       <yloc>80</yloc>
+      <attributes_kjc />
     </entry>
     <entry>
       <name>Check slave servers</name>
       <description />
       <type>TRANS</type>
+      <attributes />
       <specification_method>filename</specification_method>
       <trans_object_id />
       <filename>${Internal.Entry.Current.Directory}/Check slave servers.ktr</filename>
@@ -496,53 +520,63 @@
       <nr>0</nr>
       <xloc>272</xloc>
       <yloc>80</yloc>
+      <attributes_kjc />
     </entry>
     <entry>
       <name>End Repeat</name>
       <description />
       <type>EndRepeat</type>
+      <attributes />
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>992</xloc>
       <yloc>208</yloc>
+      <attributes_kjc />
     </entry>
     <entry>
       <name>Success</name>
       <description />
       <type>SUCCESS</type>
+      <attributes />
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>1184</xloc>
       <yloc>208</yloc>
+      <attributes_kjc />
     </entry>
     <entry>
       <name>Slaves check Abort</name>
       <description />
       <type>ABORT</type>
+      <attributes />
       <message>Error checking slave servers!</message>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>352</xloc>
       <yloc>224</yloc>
+      <attributes_kjc />
     </entry>
     <entry>
       <name>Couldn't process</name>
       <description />
       <type>ABORT</type>
+      <attributes />
       <message>Error processing queued files</message>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>1376</xloc>
       <yloc>208</yloc>
+      <attributes_kjc />
     </entry>
     <entry>
       <name>Double Check error log</name>
       <description />
       <type>EVAL</type>
+      <attributes />
       <script>
 var logText = previous_result.getLogText();
 
@@ -557,6 +591,7 @@ if (logText.contains(" - ERROR")) {
       <nr>0</nr>
       <xloc>448</xloc>
       <yloc>80</yloc>
+      <attributes_kjc />
     </entry>
   </entries>
   <hops>
@@ -684,18 +719,6 @@ if (logText.contains(" - ERROR")) {
         <value>Basic</value>
       </attribute>
       <attribute>
-        <key>Evaluate Queue and Slaves.0 : entry_log_result</key>
-        <value>N</value>
-      </attribute>
-      <attribute>
-        <key>Evaluate Queue and Slaves.0 : entry_log_level</key>
-        <value>Basic</value>
-      </attribute>
-      <attribute>
-        <key>Evaluate Queue and Slaves.0 : entry_log_result_rows</key>
-        <value>N</value>
-      </attribute>
-      <attribute>
         <key>Calculate Queued Size.0 : entry_log_result</key>
         <value>Y</value>
       </attribute>
@@ -710,14 +733,6 @@ if (logText.contains(" - ERROR")) {
       <attribute>
         <key>Calculate Queued Size.0 : entry_log_variables</key>
         <value>Y</value>
-      </attribute>
-      <attribute>
-        <key>Evaluate Queue and Slaves.0 : entry_log_variables</key>
-        <value>Y</value>
-      </attribute>
-      <attribute>
-        <key>Evaluate Queue and Slaves.0 : entry_log_result_files</key>
-        <value>N</value>
       </attribute>
     </group>
     <group>

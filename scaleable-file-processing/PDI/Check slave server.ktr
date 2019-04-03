@@ -430,6 +430,19 @@
     </partitionschemas>
     <slaveservers>
       <slaveserver>
+        <name>8888</name>
+        <hostname>localhost</hostname>
+        <port>8888</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
         <name>sandbox</name>
         <hostname>sandbox.kettle.be</hostname>
         <port>8080</port>
@@ -499,9 +512,47 @@
     <hop>
       <from>Update SlaveServer</from>
       <to>Fix this ERROR!!</to>
-      <enabled>Y</enabled>
+      <enabled>N</enabled>
     </hop>
   </order>
+  <step>
+    <name>Fix this ERROR!!</name>
+    <type>ScriptValueMod</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>
+
+throw "Hello, World!!! Something is going wrong here!"
+</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>    </fields>
+    <attributes />
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>976</xloc>
+      <yloc>96</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
   <step>
     <name>Get slave server status</name>
     <type>GetSlaveStatus</type>
@@ -528,6 +579,7 @@
     <active_jobs_field>activeJobs</active_jobs_field>
     <available_field>available</available_field>
     <response_ns_field>responseNs</response_ns_field>
+    <attributes />
     <cluster_schema />
     <remotesteps>
       <input>
@@ -537,43 +589,6 @@
     </remotesteps>
     <GUI>
       <xloc>336</xloc>
-      <yloc>96</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Fix this ERROR!!</name>
-    <type>ScriptValueMod</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <compatible>N</compatible>
-    <optimizationLevel>9</optimizationLevel>
-    <jsScripts>
-      <jsScript>
-        <jsScript_type>0</jsScript_type>
-        <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>
-
-throw "Hello, World!!! Something is going wrong here!"
-</jsScript_script>
-      </jsScript>
-    </jsScripts>
-    <fields>    </fields>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>976</xloc>
       <yloc>96</yloc>
       <draw>Y</draw>
     </GUI>
@@ -589,13 +604,16 @@ throw "Hello, World!!! Something is going wrong here!"
       <method>none</method>
       <schema_name />
     </partitioning>
-    <connection>Demo</connection>
+    <connection>Local</connection>
     <batch_size>1000</batch_size>
     <key />
     <create_indexes>Y</create_indexes>
     <use_create>N</use_create>
     <only_create_relationships>N</only_create_relationships>
+    <returning_graph>N</returning_graph>
+    <return_graph_field />
     <from>
+      <read_only_from_node>N</read_only_from_node>
       <labels>
         <label>label</label>
         <value />
@@ -694,12 +712,14 @@ throw "Hello, World!!! Something is going wrong here!"
       </properties>
     </from>
     <to>
+      <read_only_to_node>N</read_only_to_node>
       <labels />
       <properties />
     </to>
     <relationship />
     <relationship_value />
     <relprops />
+    <attributes />
     <cluster_schema />
     <remotesteps>
       <input>
@@ -738,6 +758,7 @@ throw "Hello, World!!! Something is going wrong here!"
         <set_empty_string>N</set_empty_string>
       </field>
     </fields>
+    <attributes />
     <cluster_schema />
     <remotesteps>
       <input>
@@ -776,6 +797,7 @@ throw "Hello, World!!! Something is going wrong here!"
         <trim_type>none</trim_type>
       </field>
     </fields>
+    <attributes />
     <cluster_schema />
     <remotesteps>
       <input>
@@ -794,4 +816,5 @@ throw "Hello, World!!! Something is going wrong here!"
   <slave-step-copy-partition-distribution>
   </slave-step-copy-partition-distribution>
   <slave_transformation>N</slave_transformation>
+  <attributes />
 </transformation>
