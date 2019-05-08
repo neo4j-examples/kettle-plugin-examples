@@ -39,9 +39,9 @@
       <sslMode>N</sslMode>
     </slaveserver>
     <slaveserver>
-      <name>slave1</name>
+      <name>slave2</name>
       <hostname>localhost</hostname>
-      <port>8300</port>
+      <port>8301</port>
       <webAppName />
       <username>cluster</username>
       <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
@@ -52,9 +52,9 @@
       <sslMode>N</sslMode>
     </slaveserver>
     <slaveserver>
-      <name>slave2</name>
+      <name>slave1</name>
       <hostname>localhost</hostname>
-      <port>8301</port>
+      <port>8300</port>
       <webAppName />
       <username>cluster</username>
       <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
@@ -420,7 +420,7 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>400</xloc>
-      <yloc>240</yloc>
+      <yloc>352</yloc>
       <attributes_kjc />
     </entry>
     <entry>
@@ -433,6 +433,20 @@
       <nr>0</nr>
       <xloc>848</xloc>
       <yloc>96</yloc>
+      <attributes_kjc />
+    </entry>
+    <entry>
+      <name>Create a folder</name>
+      <description />
+      <type>CREATE_FOLDER</type>
+      <attributes />
+      <foldername>${Internal.Entry.Current.Directory}/files</foldername>
+      <fail_of_folder_exists>N</fail_of_folder_exists>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>400</xloc>
+      <yloc>224</yloc>
       <attributes_kjc />
     </entry>
   </entries>
@@ -456,15 +470,6 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>clickstream data available?</from>
-      <to>Download: files/clickstream-enwiki-2018-09.tsv.gz</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>N</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
       <from>Download: files/clickstream-enwiki-2018-09.tsv.gz</from>
       <to>delete import/*.csv</to>
       <from_nr>0</from_nr>
@@ -476,6 +481,24 @@
     <hop>
       <from>delete import/*.csv</from>
       <to>Success</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>clickstream data available?</from>
+      <to>Create a folder</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Create a folder</from>
+      <to>Download: files/clickstream-enwiki-2018-09.tsv.gz</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
