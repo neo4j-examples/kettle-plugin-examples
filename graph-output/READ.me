@@ -1,0 +1,14 @@
+
+This example starts from 2 simple files:
+* files/initial.csv : this contains the initial export (snapshot) from a source system
+* files/incremental.csv: in here we have a source system snapshot from another time.
+
+The first transformation called 'initial-graph-update' simply populates a graph with Person and Company nodes and created [works_for] relationships between them.
+
+The second transformation titled 'incremental-graph-update' does the following work:
+* Compare the 2 snapshots and flags records as 'identical', 'new', 'deleted' or 'changed'
+* Ignore the 'identical' rows
+* Delete the 'deleted' persons
+* For the updated case: delete old relationships between Person and Company
+* Update the graph model
+
